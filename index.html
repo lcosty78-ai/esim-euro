@@ -2,7 +2,6 @@
 <html lang="ro">
 
 <head>
-  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="eSIM nelimitat Europa. Internet instant fără roaming, activare rapidă, plată sigură și suport 24/7.">
   <title>eSIM Nelimitat</title>
@@ -1922,6 +1921,17 @@ body {
   .checkoutPanel { padding: 20px; }
 }
 
+.offerBtn {
+  width: 100%;
+  min-height: 48px;
+  border: 0;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #18d478 0%, #48dbff 55%, #3b82f6 100%);
+  color: #02111f;
+  font-weight: 900;
+  cursor: pointer;
+}
+    
 </style>
 </head>
 
@@ -2341,10 +2351,10 @@ body {
     // CHECKOUT PANEL: plan buttons open a nice panel, then Stripe
     const CHECKOUT_API_URL = "https://esim-euro-api.onrender.com/create-checkout-session";
     const PLAN_LABELS = {
-      "3": { name: "Europa 3 zile", price: "10.99€" },
-      "10": { name: "Europa 10 zile", price: "34.99€" },
-      "20": { name: "Europa 20 zile", price: "49.99€" },
-      "30": { name: "Europa 30 zile", price: "59.99€" }
+      "plan": { name: "eSIM Europa PLAN", amount: 0, days: 0 },
+      "3": { name: "eSIM Europa 3 zile", amount: 1099, days: 10 },
+      "400GB": { name: "eSIM Europa 400 GB", amount: 5499, days: 30 },
+      "30": { name: "eSIM Europa 30 zile", amount: 5999, days: 30 }
     };
 
     let selectedCheckoutPlan = null;
