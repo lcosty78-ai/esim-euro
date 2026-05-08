@@ -2071,7 +2071,7 @@ body {
         <article class="plan">
           <h3>Europa 3 zile</h3>
           <div><b>Nelimitat</b><br>Internet</div>
-          <div class="price">10.99€</div><button class="buy planBuy" data-plan="10" type="button">CUMPĂRĂ ACUM</button>
+          <div class="price">10.99€</div><button class="buy planBuy" data-plan="3" type="button">CUMPĂRĂ ACUM</button>
           <div class="planTrust">
             <span>✔ Activare instant</span>
             <span>✔ Fără contract</span>
@@ -2088,7 +2088,7 @@ body {
           <div class="tag">CEL MAI POPULAR</div>
           <h3>Europa 400 GB</h3>
           <div><b>400 GB</b><br>Internet</div>
-          <div class="price">55.99€</div><button class="buy planBuy" data-plan="20" type="button">CUMPĂRĂ ACUM</button>
+          <div class="price">55.99€</div><button class="buy planBuy" data-plan="400GB" type="button">CUMPĂRĂ ACUM</button>
           <div class="planTrust">
             <span>✔ Activare instant</span>
             <span>✔ Fără contract</span>
@@ -2475,7 +2475,33 @@ body {
     });
   </script>
 
-script>
+  
+</script>
+  
+  <script>
+    // FUP MODAL FIX
+    document.addEventListener("DOMContentLoaded", () => {
+      const fupModal = document.getElementById("fupModal");
+      const closeFup = document.getElementById("closeFup");
+
+      document.querySelectorAll(".openFupBtn, #openFup").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          if (fupModal) fupModal.classList.add("show");
+        });
+      });
+
+      if (closeFup && fupModal) {
+        closeFup.addEventListener("click", () => fupModal.classList.remove("show"));
+        fupModal.addEventListener("click", (e) => {
+          if (e.target === fupModal) fupModal.classList.remove("show");
+        });
+      }
+    });
+  </script>
+
+
+  <script>
   const offerOverlay = document.getElementById("offerOverlay");
   const offerClose = document.getElementById("offerClose");
   const offerForm = document.getElementById("offerForm");
@@ -2514,35 +2540,12 @@ Descriere: ${desc}`;
 
     window.open(url, "_blank");
   });
-</script>
-  
-  <script>
-    // FUP MODAL FIX
-    document.addEventListener("DOMContentLoaded", () => {
-      const fupModal = document.getElementById("fupModal");
-      const closeFup = document.getElementById("closeFup");
-
-      document.querySelectorAll(".openFupBtn, #openFup").forEach((btn) => {
-        btn.addEventListener("click", (e) => {
-          e.preventDefault();
-          if (fupModal) fupModal.classList.add("show");
-        });
-      });
-
-      if (closeFup && fupModal) {
-        closeFup.addEventListener("click", () => fupModal.classList.remove("show"));
-        fupModal.addEventListener("click", (e) => {
-          if (e.target === fupModal) fupModal.classList.remove("show");
-        });
-      }
-    });
-  </script>
-
 
   <a class="whatsappFloat" href="https://wa.me/40733914329?text=Salut%20vreau%20detalii%20despre%20eSIM" target="_blank" rel="noopener">
     <span>WhatsApp</span>
   </a>
-
+  <script>
+    
 </body>
 
 </html>
