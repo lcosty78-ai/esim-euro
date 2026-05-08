@@ -396,7 +396,7 @@
 
     .review {
       display: grid;
-      grid-template-columns: 250px 1fr;
+      grid-template-columns: 250px 1.4fr;
       gap: 32px
       aling-items: start;
     }
@@ -1942,7 +1942,6 @@ body {
           <div class="icons">
             <div class="mini"><i>◷</i><span>Activare în<br><b>10 minute</b></span></div>
             <div class="mini"><i>∞</i><span>Nelimitat<br><b>(FUP aplicabil)</b></span></div>
-            <div class="mini"><i>⌖</i><span>Peste 40<br><b>de țări</b></span></div>
             <div class="mini"><i>☎</i><span>Suport<br><b>24/7</b></span></div>
           </div><a class="btn" href="#planuri">VEZI PLANURILE <b>→</b></a>
           <div class="trust">Excelent&nbsp; <b>4.9 din 5</b> <span class="star">★</span> Trustpilot</div>
@@ -2055,14 +2054,28 @@ body {
       </div>
       <div class="plans">
         <article class="plan">
-          <h3>Europa 3 zile</h3>
+          <h3>Europa plan</h3>
           <div><b>Nelimitat</b><br>Internet</div>
-          <div class="price">10.99€</div><button class="buy planBuy" data-plan="3" type="button">CUMPĂRĂ ACUM</button>
+          <div class="price"></div><button class="buy offerBtn" data-plan="plan" type="button">CERE ACUM</button>
           <div class="planTrust">
             <span>✔ Activare instant</span>
             <span>✔ Fără contract</span>
             <span>✔ Rambursare 24h</span>
-            <strong>🔥 17 persoane se uită acum</strong>
+          </div>
+          <ul>
+            <li>Nelimitat (FUP aplicabil)</li>
+            <li>Peste 40 țări incluse</li>
+            <li>Activare instant</li>
+          </ul><button type="button" class="openFupBtn">CITEȘTE DETALII FUP</button>
+        </article>
+        <article class="plan">
+          <h3>Europa 3 zile</h3>
+          <div><b>Nelimitat</b><br>Internet</div>
+          <div class="price">10.99€</div><button class="buy planBuy" data-plan="10" type="button">CUMPĂRĂ ACUM</button>
+          <div class="planTrust">
+            <span>✔ Activare instant</span>
+            <span>✔ Fără contract</span>
+            <span>✔ Rambursare 24h</span>
           </div>
           <ul>
             <li>Valabil 3 zile</li>
@@ -2071,37 +2084,19 @@ body {
             <li>Activare instant</li>
           </ul><button type="button" class="openFupBtn">CITEȘTE DETALII FUP</button>
         </article>
-        <article class="plan">
-          <h3>Europa 10 zile</h3>
-          <div><b>Nelimitat</b><br>Internet</div>
-          <div class="price">34.99€</div><button class="buy planBuy" data-plan="10" type="button">CUMPĂRĂ ACUM</button>
-          <div class="planTrust">
-            <span>✔ Activare instant</span>
-            <span>✔ Fără contract</span>
-            <span>✔ Rambursare 24h</span>
-            <strong>🔥 17 persoane se uită acum</strong>
-          </div>
-          <ul>
-            <li>Valabil 10 zile</li>
-            <li>Nelimitat (FUP aplicabil)</li>
-            <li>Peste 40 țări incluse</li>
-            <li>Activare instant</li>
-          </ul><button type="button" class="openFupBtn">CITEȘTE DETALII FUP</button>
-        </article>
         <article class="plan pop">
           <div class="tag">CEL MAI POPULAR</div>
-          <h3>Europa 20 zile</h3>
-          <div><b>Nelimitat</b><br>Internet</div>
-          <div class="price">49.99€</div><button class="buy planBuy" data-plan="20" type="button">CUMPĂRĂ ACUM</button>
+          <h3>Europa 400 GB</h3>
+          <div><b>400 GB</b><br>Internet</div>
+          <div class="price">55.99€</div><button class="buy planBuy" data-plan="20" type="button">CUMPĂRĂ ACUM</button>
           <div class="planTrust">
             <span>✔ Activare instant</span>
             <span>✔ Fără contract</span>
             <span>✔ Rambursare 24h</span>
-            <strong>🔥 17 persoane se uită acum</strong>
           </div>
           <ul>
-            <li>Valabil 20 zile</li>
-            <li>Nelimitat (FUP aplicabil)</li>
+            <li>Valabil 30 zile</li>
+            <li>400 GB (FUP aplicabil)</li>
             <li>Peste 40 țări incluse</li>
             <li>Activare instant</li>
           </ul><button type="button" class="openFupBtn">CITEȘTE DETALII FUP</button>
@@ -2114,7 +2109,6 @@ body {
             <span>✔ Activare instant</span>
             <span>✔ Fără contract</span>
             <span>✔ Rambursare 24h</span>
-            <strong>🔥 17 persoane se uită acum</strong>
           </div>
           <ul>
             <li>Valabil 30 zile</li>
@@ -2290,6 +2284,38 @@ body {
     </div>
   </div>
 
+  <div class="checkoutOverlay" id="offerOverlay">
+  <div class="checkoutPanel">
+    <button type="button" class="checkoutClose" id="offerClose">×</button>
+    <h2>Cere ofertă</h2>
+    <p>Completează datele și te contactăm rapid.</p>
+
+    <form class="checkoutForm" id="offerForm">
+      <label>
+        Nume complet
+        <input id="offerName" type="text" required>
+      </label>
+
+      <label>
+        Gmail / Email
+        <input id="offerEmail" type="email" required>
+      </label>
+
+      <label>
+        Număr telefon
+        <input id="offerPhone" type="tel" required>
+      </label>
+
+      <label>
+        Descriere
+        <input id="offerDesc" type="text" placeholder="Ex: vreau eSIM 3 zile pentru Italia" required>
+      </label>
+
+      <button type="submit" class="checkoutSubmit">Trimite pe WhatsApp</button>
+    </form>
+  </div>
+</div>
+  
   <script>
     const mapSvg = `<svg viewBox="0 0 700 430" width="100%" height="100%" preserveAspectRatio="xMidYMid meet"><defs><pattern id="dots" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.45" fill="#1aa7ff" opacity=".95"/></pattern><radialGradient id="glow"><stop offset="0" stop-color="#55f2ff"/><stop offset=".35" stop-color="#15baff" stop-opacity=".75"/><stop offset="1" stop-color="#108cff" stop-opacity="0"/></radialGradient></defs><g class="mapShape"><path d="M165 128l46-38 58-9 44-44 48 28 55 4 38 27 52-1 25 34 51 17 9 43 44 24-16 42 30 33-30 33-59-7-39 31-56-8-32 42-52-23-54 31-46-38-51 6-21-42-67-5-17-42-65-20 12-41-38-32 39-31z" fill="url(#dots)" opacity=".74"/><path d="M122 180l70-15 39-58 72-19 51-48 52 31 55 3 43 29 58 5 30 45 58 22 7 43 39 28-22 39 28 38-31 37-65-9-44 35-64-9-30 48-57-27-56 36-52-43-56 7-25-48-71-5-23-48-72-25 17-49-41-36z" fill="none" stroke="#168de8" stroke-width="2" opacity=".32"/></g><path d="M135 285c80-96 176-126 286-78 74 33 121 48 185 35" fill="none" stroke="#53d8ff" stroke-width="2" opacity=".9" class="route"/><path d="M196 332c62-70 126-96 207-76 78 19 112-60 183-105" fill="none" stroke="#0c96ff" stroke-width="2" opacity=".8" class="route"/><path d="M116 247c119-32 215-21 346 46" fill="none" stroke="#36cbff" stroke-width="1.7" opacity=".62" class="route"/><ellipse cx="382" cy="235" rx="245" ry="82" fill="none" stroke="#27c4ff" stroke-width="2" opacity=".56"/><g>${[[148, 282], [211, 220], [298, 162], [372, 213], [455, 181], [544, 146], [594, 250], [432, 318], [315, 338]].map((p, i) => `<circle cx="${p[0]}" cy="${p[1]}" r="32" fill="url(#glow)" opacity=".75"/><circle cx="${p[0]}" cy="${p[1]}" r="5" fill="#4feeff" class="dot" style="animation-delay:${i * .23}s"/>`).join('')}</g></svg>`; if (document.getElementById('mapSmall')) { mapSmall.innerHTML = mapSvg; }
     const API_CONFIG = { stripePublicKey: 'PUNE_AICI_STRIPE_PUBLIC_KEY', apiEndpoint: 'PUNE_AICI_LINK_API', checkoutLinks: { 3: 'PUNE_LINK_3_ZILE', 10: 'PUNE_LINK_10_ZILE', 20: 'PUNE_LINK_20_ZILE', 30: 'PUNE_LINK_30_ZILE' } };
@@ -2449,7 +2475,47 @@ body {
     });
   </script>
 
+script>
+  const offerOverlay = document.getElementById("offerOverlay");
+  const offerClose = document.getElementById("offerClose");
+  const offerForm = document.getElementById("offerForm");
 
+  let selectedOfferPlan = "";
+
+  document.querySelectorAll(".offerBtn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      selectedOfferPlan = btn.dataset.plan || "Ofertă eSIM";
+      offerOverlay.classList.add("show");
+    });
+  });
+
+  offerClose.addEventListener("click", () => {
+    offerOverlay.classList.remove("show");
+  });
+
+  offerForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("offerName").value.trim();
+    const email = document.getElementById("offerEmail").value.trim();
+    const phone = document.getElementById("offerPhone").value.trim();
+    const desc = document.getElementById("offerDesc").value.trim();
+
+    const mesaj = `Salut! Vreau ofertă eSIM.
+
+Plan: ${selectedOfferPlan}
+Nume: ${name}
+Email: ${email}
+Telefon: ${phone}
+Descriere: ${desc}`;
+
+    const whatsappNumber = "40733914329";
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(mesaj)}`;
+
+    window.open(url, "_blank");
+  });
+</script>
+  
   <script>
     // FUP MODAL FIX
     document.addEventListener("DOMContentLoaded", () => {
