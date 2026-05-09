@@ -2486,58 +2486,56 @@ body {
   </script>
 
   
-</script>
-  
   <script>
-    // FUP MODAL FIX
-    document.addEventListener("DOMContentLoaded", () => {
-      const fupModal = document.getElementById("fupModal");
-      const closeFup = document.getElementById("closeFup");
+  // FUP MODAL FIX
+  document.addEventListener("DOMContentLoaded", () => {
+    const fupModal = document.getElementById("fupModal");
+    const closeFup = document.getElementById("closeFup");
 
-      document.querySelectorAll(".openFupBtn, #openFup").forEach((btn) => {
-        btn.addEventListener("click", (e) => {
-          e.preventDefault();
-          if (fupModal) fupModal.classList.add("show");
-        });
+    document.querySelectorAll(".openFupBtn, #openFup").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (fupModal) fupModal.classList.add("show");
       });
-
-      if (closeFup && fupModal) {
-        closeFup.addEventListener("click", () => fupModal.classList.remove("show"));
-        fupModal.addEventListener("click", (e) => {
-          if (e.target === fupModal) fupModal.classList.remove("show");
-        });
-      }
     });
-  </script>
 
+    if (closeFup && fupModal) {
+      closeFup.addEventListener("click", () => fupModal.classList.remove("show"));
+      fupModal.addEventListener("click", (e) => {
+        if (e.target === fupModal) fupModal.classList.remove("show");
+      });
+    }
+  });
+</script>
 
-  <script>
-  const offerOverlay = document.getElementById("offerOverlay");
-  const offerClose = document.getElementById("offerClose");
-  const offerForm = document.getElementById("offerForm");
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const offerOverlay = document.getElementById("offerOverlay");
+    const offerClose = document.getElementById("offerClose");
+    const offerForm = document.getElementById("offerForm");
 
-  let selectedOfferPlan = "";
+    let selectedOfferPlan = "";
 
-  document.querySelectorAll(".offerBtn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      selectedOfferPlan = btn.dataset.plan || "Ofertă eSIM";
-      offerOverlay.classList.add("show");
+    document.querySelectorAll(".offerBtn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        selectedOfferPlan = btn.dataset.plan || "Ofertă eSIM";
+        offerOverlay.classList.add("show");
+      });
     });
-  });
 
-  offerClose.addEventListener("click", () => {
-    offerOverlay.classList.remove("show");
-  });
+    offerClose.addEventListener("click", () => {
+      offerOverlay.classList.remove("show");
+    });
 
-  offerForm.addEventListener("submit", function(e) {
-    e.preventDefault();
+    offerForm.addEventListener("submit", function(e) {
+      e.preventDefault();
 
-    const name = document.getElementById("offerName").value.trim();
-    const email = document.getElementById("offerEmail").value.trim();
-    const phone = document.getElementById("offerPhone").value.trim();
-    const desc = document.getElementById("offerDesc").value.trim();
+      const name = document.getElementById("offerName").value.trim();
+      const email = document.getElementById("offerEmail").value.trim();
+      const phone = document.getElementById("offerPhone").value.trim();
+      const desc = document.getElementById("offerDesc").value.trim();
 
-    const mesaj = `Salut! Vreau ofertă eSIM.
+      const mesaj = `Salut! Vreau ofertă eSIM.
 
 Plan: ${selectedOfferPlan}
 Nume: ${name}
@@ -2545,17 +2543,17 @@ Email: ${email}
 Telefon: ${phone}
 Descriere: ${desc}`;
 
-    const whatsappNumber = "40733914329";
-    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(mesaj)}`;
+      const whatsappNumber = "40733914329";
+      const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(mesaj)}`;
 
-    window.open(url, "_blank");
+      window.open(url, "_blank");
+    });
   });
+</script>
 
-  <a class="whatsappFloat" href="https://wa.me/40733914329?text=Salut%20vreau%20detalii%20despre%20eSIM" target="_blank" rel="noopener">
-    <span>WhatsApp</span>
-  </a>
-  <script>
-    
+<a class="whatsappFloat" href="https://wa.me/40733914329?text=Salut%20vreau%20detalii%20despre%20eSIM" target="_blank" rel="noopener">
+  <span>WhatsApp</span>
+</a>
+
 </body>
-
 </html>
