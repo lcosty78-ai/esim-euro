@@ -2341,12 +2341,88 @@ body {
       supportEmailBtn.rel = 'noopener';
     }
     [['footerWhatsApp', 'whatsapp'], ['footerDiscord', 'discord']].forEach(([id, k]) => { const el = document.getElementById(id); const v = SUPPORT_CONFIG[k]; if (v && !v.startsWith('PUNE_')) el.href = v; else el.href = '#' });
-    function getReviews() { return JSON.parse(localStorage.getItem('esim_reviews') || '[]') }
-    function chooseDailyBest(list) { const pool = list.length ? list : [{ name: 'Andrei M.', stars: 5, text: 'Super simplu și rapid! Am primit eSIM-ul pe email în 1 minut și am fost online imediat în Italia.' }, { name: 'Maria P.', stars: 5, text: 'Activare rapidă, QR-ul a venit imediat pe email.' }]; const today = new Date().toISOString().slice(0, 10); let seed = 0; for (const ch of today) seed += ch.charCodeAt(0); const best = pool.filter(r => r.stars >= 4); const arr = best.length ? best : pool; return arr[seed % arr.length]; }
-    function updateFeatured() { const r = chooseDailyBest(getReviews()); featuredReview.innerHTML = '“' + r.text + '”<br><br>— ' + r.name; }
-    function renderReviews() { const arr = getReviews(); userReviews.innerHTML = (arr.length ? arr : [{ name: 'Maria P.', stars: 5, text: 'Activare rapidă, QR-ul a venit imediat pe email.' }]).map(r => '<div class="userReview"><b>' + r.name + '</b> <span style="color:#00d083">' + '★'.repeat(r.stars) + '☆'.repeat(5 - r.stars) + '</span><br>' + r.text + '</div>').join(''); updateFeatured(); if (localStorage.getItem('esim_review_done') === '1') { reviewForm.querySelector('button').disabled = true; reviewForm.querySelector('button').textContent = 'AI LĂSAT DEJA O RECENZIE'; } }
+    <script>
+async Reviews() {
+  try {
+    const res = await fetch("/reviews");
+    const data = await res.json();
+    return data.reviews || [];
+  } catch {
+    return [];
+  }
+}
+
+function chooseDailyBest(list) {
+  const pool = list.length ? list : [{
+    name: 'Andrei M.',
+    stars: 5,
+    text: 'Super simplu și rapid! Am primit eSIM-ul pe email și am fost online imediat.'
+  }];
+
+  return pool[Math.floor(Math.random() * pool.length)];
+}
+
+async function renderReviews() {
+  const arr = await getReviews();
+
+  userReviews.innerHTML = (arr.length ? arr : [{
+    name: 'Maria P.',
+    stars: 5,
+    text: 'Activare rapidă și internet foarte bun.'
+  }]).map(r => `
+    <div class="userReview">
+      <b>${r.name}</b>
+      <span style="color:#00d083">
+        ${'★'.repeat(r.stars)}${'☆'.repeat(5-r.stars)}
+      </span><br>
+      ${r.text}
+    </div>
+  `).join('');
+
+  const featured = chooseDailyBest(arr);
+
+  featuredReview.innerHTML =
+    “${featured.text}”<br><br>— ${featured.name};
+}
+
+renderReviews();
+
+reviewForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const email = reviewEmail.value.trim();
+  const stars = Number(reviewStars.value);
+  const text = reviewText.value.trim();
+
+  try {
+    const res = await fetch("/reviews", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email,
+        stars,
+        text
+      })
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      alert(data.error || "Eroare.");
+      return;
+    }
+
+    reviewForm.reset();
     renderReviews();
-  </script>
+
+    alert("Recenzia a fost publicată!");
+  } catch {
+    alert("Eroare server.");
+  }
+});
+</script>
   <script>
     // CHECKOUT PANEL: plan buttons open a nice panel, then Stripe
     const CHECKOUT_API_URL = "https://esim-euro-api.onrender.com/create-checkout-session";
