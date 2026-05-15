@@ -2341,8 +2341,10 @@ body {
       supportEmailBtn.rel = 'noopener';
     }
     [['footerWhatsApp', 'whatsapp'], ['footerDiscord', 'discord']].forEach(([id, k]) => { const el = document.getElementById(id); const v = SUPPORT_CONFIG[k]; if (v && !v.startsWith('PUNE_')) el.href = v; else el.href = '#' });
-    <script>
-async Reviews() {
+    </script>
+
+<script>
+async function getReviews() {
   try {
     const res = await fetch("/reviews");
     const data = await res.json();
@@ -2354,9 +2356,9 @@ async Reviews() {
 
 function chooseDailyBest(list) {
   const pool = list.length ? list : [{
-    name: 'Andrei M.',
+    name: "Andrei M.",
     stars: 5,
-    text: 'Super simplu și rapid! Am primit eSIM-ul pe email și am fost online imediat.'
+    text: "Super simplu și rapid! Am primit eSIM-ul pe email și am fost online imediat."
   }];
 
   return pool[Math.floor(Math.random() * pool.length)];
@@ -2366,23 +2368,21 @@ async function renderReviews() {
   const arr = await getReviews();
 
   userReviews.innerHTML = (arr.length ? arr : [{
-    name: 'Maria P.',
+    name: "Maria P.",
     stars: 5,
-    text: 'Activare rapidă și internet foarte bun.'
+    text: "Activare rapidă și internet foarte bun."
   }]).map(r => `
     <div class="userReview">
       <b>${r.name}</b>
       <span style="color:#00d083">
-        ${'★'.repeat(r.stars)}${'☆'.repeat(5-r.stars)}
+        ${"★".repeat(r.stars)}${"☆".repeat(5 - r.stars)}
       </span><br>
       ${r.text}
     </div>
-  `).join('');
+  `).join("");
 
   const featured = chooseDailyBest(arr);
-
-  featuredReview.innerHTML =
-    “${featured.text}”<br><br>— ${featured.name};
+  featuredReview.innerHTML = “${featured.text}”<br><br>— ${featured.name};
 }
 
 renderReviews();
@@ -2400,11 +2400,7 @@ reviewForm.addEventListener("submit", async (e) => {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({
-        email,
-        stars,
-        text
-      })
+      body: JSON.stringify({ email, stars, text })
     });
 
     const data = await res.json();
@@ -2416,7 +2412,6 @@ reviewForm.addEventListener("submit", async (e) => {
 
     reviewForm.reset();
     renderReviews();
-
     alert("Recenzia a fost publicată!");
   } catch {
     alert("Eroare server.");
