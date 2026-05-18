@@ -2568,7 +2568,6 @@ async function loadReviews() {
 
     reviews.forEach(r => {
       const div = document.createElement("div");
-
       div.className = "userReview";
 
       div.innerHTML = `
@@ -2584,13 +2583,11 @@ async function loadReviews() {
 
     if (reviews.length > 0) {
       const r = reviews[0];
-
       featuredReviewBox.innerHTML =
-        “${r.text}”<br><br>— ${r.name  "Client"}`;
+        “${r.text  ""}”<br><br>— ${r.name  "Client"}`;
     }
-
   } catch (err) {
-    console.log(err);
+    console.log("Reviews error:", err);
   }
 }
 
@@ -2599,44 +2596,26 @@ loadReviews();
 reviewFormBox.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const email =
-    document.getElementById("reviewEmail").value.trim();
+  const email = document.getElementById("reviewEmail").value.trim();
+  const stars = Number(document.getElementById("reviewStars").value);
+  const text = document.getElementById("reviewText").value.trim();
 
-  const stars =
-    Number(document.getElementById("reviewStars").value);
+  const res = await fetch(REVIEWS_API, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, stars, text })
+  });
 
-  const text =
-    document.getElementById("reviewText").value.trim();
+  const data = await res.json();
 
-  try {
-    const res = await fetch(REVIEWS_API, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        email,
-        stars,
-        text
-      })
-    });
-
-    const data = await res.json();
-
-    if (!res.ok) {
-      alert(data.error  "Eroare");
-      return;
-    }
-
-    reviewFormBox.reset();
-
-    await loadReviews();
-
-    alert("Recenzie publicată!");
-  } catch (err) {
-    console.log(err);
-    alert("Eroare server");
+  if (!res.ok) {
+    alert(data.error || "Eroare");
+    return;
   }
+
+  reviewFormBox.reset();
+  await loadReviews();
+  alert("Recenzie publicată!");
 });
 </script>
   
