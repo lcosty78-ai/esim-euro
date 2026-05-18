@@ -2346,7 +2346,7 @@ body {
 <script>
 async function getReviews() {
   try {
-    const res = await fetch("/reviews");
+    const res = await fetch("https://esim-euro-api.onrender.com/reviews");
     const data = await res.json();
     return data.reviews || [];
   } catch {
@@ -2395,7 +2395,7 @@ reviewForm.addEventListener("submit", async (e) => {
   const text = reviewText.value.trim();
 
   try {
-    const res = await fetch("/reviews", {
+    const res = await fetch("https://esim-euro-api.onrender.com/reviews", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
