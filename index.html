@@ -2343,81 +2343,6 @@ body {
     [['footerWhatsApp', 'whatsapp'], ['footerDiscord', 'discord']].forEach(([id, k]) => { const el = document.getElementById(id); const v = SUPPORT_CONFIG[k]; if (v && !v.startsWith('PUNE_')) el.href = v; else el.href = '#' });
     </script>
 
-<script>
-async function getReviews() {
-  try {
-    const res = await fetch("https://esim-euro-api.onrender.com/reviews");
-    const data = await res.json();
-    return data.reviews || [];
-  } catch {
-    return [];
-  }
-}
-
-function chooseDailyBest(list) {
-  const pool = list.length ? list : [{
-    name: "Andrei M.",
-    stars: 5,
-    text: "Super simplu și rapid! Am primit eSIM-ul pe email și am fost online imediat."
-  }];
-
-  return pool[Math.floor(Math.random() * pool.length)];
-}
-
-async function renderReviews() {
-  const arr = await getReviews();
-
-  userReviews.innerHTML = (arr.length ? arr : [{
-    name: "Maria P.",
-    stars: 5,
-    text: "Activare rapidă și internet foarte bun."
-  }]).map(r => `
-    <div class="userReview">
-      <b>${r.name}</b>
-      <span style="color:#00d083">
-        ${"★".repeat(r.stars)}${"☆".repeat(5 - r.stars)}
-      </span><br>
-      ${r.text}
-    </div>
-  `).join("");
-
-  const featured = chooseDailyBest(arr);
-  featuredReview.innerHTML = “${featured.text}”<br><br>— ${featured.name};
-}
-
-renderReviews();
-
-reviewForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const email = reviewEmail.value.trim();
-  const stars = Number(reviewStars.value);
-  const text = reviewText.value.trim();
-
-  try {
-    const res = await fetch("https://esim-euro-api.onrender.com/reviews", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ email, stars, text })
-    });
-
-    const data = await res.json();
-
-    if (!res.ok) {
-      alert(data.error || "Eroare.");
-      return;
-    }
-
-    reviewForm.reset();
-    renderReviews();
-    alert("Recenzia a fost publicată!");
-  } catch {
-    alert("Eroare server.");
-  }
-});
-</script>
   <script>
     // CHECKOUT PANEL: plan buttons open a nice panel, then Stripe
     const CHECKOUT_API_URL = "https://esim-euro-api.onrender.com/create-checkout-session";
@@ -2626,5 +2551,94 @@ Descriere: ${desc}`;
   <span>WhatsApp</span>
 </a>
 
+<script>
+const REVIEWS_API = "https://esim-euro-api.onrender.com/reviews";
+
+const userReviewsBox = document.getElementById("userReviews");
+const featuredReviewBox = document.getElementById("featuredReview");
+const reviewFormBox = document.getElementById("reviewForm");
+
+async function loadReviews() {
+  try {
+    const res = await fetch(REVIEWS_API);
+    const data = await res.json();
+    const reviews = data.reviews  [];
+
+    userReviewsBox.innerHTML = "";
+
+    reviews.forEach(r => {
+      const div = document.createElement("div");
+
+      div.className = "userReview";
+
+      div.innerHTML = `
+        <b>${r.name  "Client"}</b><br>
+        <span style="color:#00d083">
+          ${"★".repeat(Number(r.stars  5))}
+        </span>
+        <p>${r.text  ""}</p>
+      ;
+
+      userReviewsBox.appendChild(div);
+    });
+
+    if (reviews.length > 0) {
+      const r = reviews[0];
+
+      featuredReviewBox.innerHTML =
+        “${r.text}”<br><br>— ${r.name  "Client"}`;
+    }
+
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+loadReviews();
+
+reviewFormBox.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const email =
+    document.getElementById("reviewEmail").value.trim();
+
+  const stars =
+    Number(document.getElementById("reviewStars").value);
+
+  const text =
+    document.getElementById("reviewText").value.trim();
+
+  try {
+    const res = await fetch(REVIEWS_API, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email,
+        stars,
+        text
+      })
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      alert(data.error  "Eroare");
+      return;
+    }
+
+    reviewFormBox.reset();
+
+    await loadReviews();
+
+    alert("Recenzie publicată!");
+  } catch (err) {
+    console.log(err);
+    alert("Eroare server");
+  }
+});
+</script>
+  
 </body>
 </html>
