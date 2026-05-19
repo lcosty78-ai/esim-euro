@@ -1,0 +1,2862 @@
+<!doctype html>
+<html lang="ro">
+
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="eSIM nelimitat Europa. Internet instant fără roaming, activare rapidă, plată sigură și suport 24/7.">
+  <title>eSIM Nelimitat</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <style>
+    :root {
+      --bg: #020914;
+      --card: rgba(5, 25, 45, .78);
+      --line: rgba(67, 169, 255, .32);
+      --blue: #0b8cff;
+      --cyan: #48dbff;
+      --text: #f4f8ff;
+      --muted: #b7cbe2;
+      --green: #18d478
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: radial-gradient(circle at 15% 10%, #0c3155 0, #061c34 25%, #020b16 55%, #01050c 100%);
+      color: var(--text);
+      overflow-x: hidden
+    }
+
+    body:before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(255, 255, 255, .035) 1px, transparent 1px), linear-gradient(rgba(255, 255, 255, .02) 1px, transparent 1px);
+      background-size: 80px 80px;
+      opacity: .18;
+      pointer-events: none
+    }
+
+    .nav {
+      height: 61px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 55px;
+      background: rgba(2, 10, 22, .78);
+      border-bottom: 1px solid rgba(78, 170, 255, .15);
+      position: sticky;
+      top: 0;
+      z-index: 20
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      font-size: 20px
+    }
+
+    .brand span {
+      color: #16a4ff
+    }
+
+    .logo {
+      width: 24px;
+      height: 32px;
+      border: 2px solid #159dff;
+      border-radius: 6px;
+      box-shadow: 0 0 18px rgba(20, 151, 255, .45)
+    }
+
+    .links {
+      display: flex;
+      gap: 34px;
+      font-weight: 700;
+      font-size: 14px
+    }
+
+    .links a {
+      color: white;
+      text-decoration: none
+    }
+
+    .main {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      max-width: 1920px;
+      margin: auto
+    }
+
+    .left {
+      border-right: 1px solid rgba(78, 170, 255, .25);
+      padding: 58px 48px 35px 63px
+    }
+
+    .right {
+      padding: 24px 31px 35px
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      align-items: center;
+      min-height: 410px
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      line-height: 1.12;
+      margin: 0 0 18px;
+      font-weight: 950
+    }
+
+    .hero p {
+      font-size: 17px;
+      line-height: 1.45;
+      margin: 0 0 35px
+    }
+
+    .icons {
+      display: grid;
+      grid-template-columns: repeat(4, auto);
+      gap: 24px;
+      margin: 0 0 32px
+    }
+
+    .mini {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      font-size: 13px
+    }
+
+    .mini i {
+      width: 25px;
+      height: 25px;
+      border: 2px solid white;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-style: normal;
+      font-size: 12px
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      min-width: 230px;
+      height: 47px;
+      border-radius: 6px;
+      border: 1px solid rgba(69, 194, 255, .65);
+      background: linear-gradient(180deg, #0d9dff, #056fe8);
+      color: white;
+      font-weight: 950;
+      text-decoration: none;
+      box-shadow: 0 0 34px rgba(0, 132, 255, .55);
+      cursor: pointer
+    }
+
+    .btn:hover,
+    .buy:hover {
+      transform: translateY(-3px);
+      filter: brightness(1.12)
+    }
+
+    .trust {
+      margin-top: 25px
+    }
+
+    .star {
+      color: #00d083;
+      font-size: 23px
+    }
+
+    .visual {
+      height: 390px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center
+    }
+
+    .map {
+      position: absolute;
+      inset: -18px 0 0 -18px;
+      filter: drop-shadow(0 0 28px rgba(0, 151, 255, .7));
+      opacity: .96
+    }
+
+    .phone {
+      width: 182px;
+      height: 330px;
+      border-radius: 34px;
+      border: 5px solid #050914;
+      background: linear-gradient(180deg, #0874dc, #063a75);
+      box-shadow: 0 0 0 3px #8b6846, 0 32px 70px rgba(0, 0, 0, .7), 0 0 45px rgba(0, 120, 255, .34);
+      position: absolute;
+      right: 46px;
+      top: 27px;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px
+    }
+
+    .phone:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 78px;
+      height: 18px;
+      border-radius: 0 0 13px 13px;
+      background: #050914
+    }
+
+    .phone h2 {
+      font-size: 32px;
+      margin: 0
+    }
+
+    .qr {
+      width: 105px;
+      height: 105px;
+      background: white;
+      padding: 7px;
+      display: grid;
+      grid-template-columns: repeat(9, 1fr);
+      gap: 2px
+    }
+
+    .qr span {
+      background: #111
+    }
+
+    .active {
+      padding: 10px 27px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #13c978, #16df7e);
+      color: #06361d;
+      font-size: 13px;
+      font-weight: 900
+    }
+
+    .bar {
+      margin-top: 22px;
+      border: 1px solid rgba(72, 219, 255, .34);
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(5, 26, 47, .88), rgba(5, 26, 47, .62));
+      padding: 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 18px;
+      box-shadow: 0 0 26px rgba(0, 150, 255, .16), inset 0 0 35px rgba(72, 219, 255, .04);
+    }
+
+    .barItem {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      min-width: 0;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, .045);
+      border: 1px solid rgba(72, 219, 255, .12);
+    }
+
+    .barItem b {
+      display: block;
+      font-size: 14px;
+      line-height: 1.25;
+      margin-bottom: 5px;
+    }
+
+    .barItem small {
+      display: block;
+      color: #c9d8ea;
+      font-size: 12px;
+      line-height: 1.35;
+      margin-top: 0;
+    }
+
+    .stepsTitle {
+      text-align: center;
+      font-size: 29px;
+      margin: 30px 0 16px
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 38px;
+      margin: 0 25px
+    }
+
+    .step {
+      text-align: center;
+      position: relative
+    }
+
+    .step:not(:last-child):after {
+      content: "›";
+      position: absolute;
+      right: -25px;
+      top: 43px;
+      font-size: 42px
+    }
+
+    .stepIcon {
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      margin: 0 auto 13px;
+      background: radial-gradient(circle at 30% 20%, rgba(31, 160, 255, .55), rgba(7, 40, 73, .9));
+      border: 1px solid rgba(75, 177, 255, .22);
+      display: grid;
+      place-items: center;
+      font-size: 43px;
+      position: relative
+    }
+
+    .stepIcon em {
+      position: absolute;
+      top: -8px;
+      left: 20px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #0c92ff;
+      display: grid;
+      place-items: center;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 900
+    }
+
+    .step small {
+      font-size: 13px;
+      line-height: 1.4
+    }
+
+    .bottom {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 26px
+    }
+
+    .box {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(5, 25, 45, .72);
+      padding: 22px 26px;
+      box-shadow: inset 0 0 35px rgba(23, 145, 255, .05)
+    }
+
+    .box h3 {
+      font-size: 23px;
+      margin: 0 0 14px
+    }
+
+    .faq details {
+      background: rgba(8, 33, 58, .82);
+      border: 1px solid rgba(67, 169, 255, .2);
+      border-radius: 6px;
+      margin: 10px 0;
+      padding: 12px 13px;
+      font-size: 14px
+    }
+
+    .faq summary {
+      cursor: pointer;
+      font-weight: 800
+    }
+
+    .faq p {
+      color: #cfe3f7;
+      line-height: 1.5;
+      margin: 10px 0 0;
+      font-size: 13px
+    }
+
+    .review {
+      display: grid;
+      grid-template-columns: 250px 1.4fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .greenStars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 9px
+    }
+
+    .greenStars span {
+      background: #00b67a;
+      color: white;
+      width: 23px;
+      height: 23px;
+      display: grid;
+      place-items: center
+    }
+
+    .quote,
+    .userReview {
+      border: 1px solid rgba(67, 169, 255, .2);
+      background: rgba(8, 35, 62, .7);
+      border-radius: 8px;
+      padding: 15px;
+      font-size: 13px;
+      line-height: 1.55;
+      min-height: 180px;
+    }
+
+    .reviewPanel {
+      grid-column: 1/-1
+    }
+
+    .reviewForm {
+      display: grid;
+      grid-template-columns: 1fr 160px;
+      gap: 10px;
+      margin-top: 14px
+    }
+
+    .reviewForm input,
+    .reviewForm textarea,
+    .reviewForm select {
+      width: 100%;
+      border: 1px solid rgba(67, 169, 255, .28);
+      background: rgba(3, 18, 34, .9);
+      color: white;
+      border-radius: 7px;
+      padding: 11px;
+      font-family: inherit
+    }
+
+    .reviewForm textarea {
+      grid-column: 1/-1;
+      min-height: 76px
+    }
+
+    .reviewForm button {
+      border: 0;
+      border-radius: 7px;
+      background: linear-gradient(#0e9cff, #0672e8);
+      color: #fff;
+      font-weight: 950
+    }
+
+    .userReviews {
+      margin-top: 12px;
+      display: grid;
+      gap: 10px
+    }
+
+    .plansHead {
+      text-align: center;
+      margin-bottom: 26px
+    }
+
+    .plansHead h2 {
+      font-size: 36px;
+      margin: 0 0 10px
+    }
+
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px
+    }
+
+    .plan {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(5, 25, 45, .72);
+      padding: 27px 16px 17px;
+      text-align: center;
+      min-height: 343px;
+      position: relative;
+      transition: .25s
+    }
+
+    .plan.pop {
+      border-color: #0e9fff;
+      box-shadow: 0 0 22px rgba(17, 149, 255, .45), inset 0 0 36px rgba(16, 140, 255, .12)
+    }
+
+    .tag {
+      position: absolute;
+      left: 50%;
+      top: -14px;
+      transform: translateX(-50%);
+      background: #108cff;
+      border-radius: 8px;
+      padding: 6px 23px;
+      font-size: 11px;
+      font-weight: 950
+    }
+
+    .price {
+      font-size: 29px;
+      font-weight: 950;
+      margin: 17px 0
+    }
+
+    .buy {
+      height: 38px;
+      width: 100%;
+      border: 0;
+      border-radius: 5px;
+      background: linear-gradient(#0e9cff, #0672e8);
+      color: #fff;
+      font-weight: 950;
+      font-size: 12px;
+      transition: .25s
+    }
+
+    .plan ul {
+      list-style: none;
+      text-align: left;
+      padding: 0;
+      margin: 18px 0 0;
+      line-height: 1.85;
+      font-size: 13px
+    }
+
+    .plan li:before {
+      content: "✓";
+      margin-right: 8px
+    }
+
+    .coverage {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(5, 25, 45, .72);
+      padding: 24px 25px;
+      display: grid;
+      grid-template-columns: .85fr .9fr 1.15fr;
+      gap: 20px;
+      align-items: center;
+      min-height: 305px;
+      margin-top: 24px
+    }
+
+    .coverage h3 {
+      font-size: 25px;
+      margin: 0 0 14px
+    }
+
+    .mapSmall {
+      height: 230px
+    }
+
+    .countries {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 18px;
+      font-size: 13px;
+      font-weight: 800;
+      max-height: 252px;
+      overflow: auto;
+      padding-right: 6px
+    }
+
+    .countries span {
+      white-space: nowrap
+    }
+
+    .countries::-webkit-scrollbar {
+      width: 6px
+    }
+
+    .countries::-webkit-scrollbar-thumb {
+      background: #118dff;
+      border-radius: 10px
+    }
+
+    .rightBottom {
+      display: grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap: 18px;
+      margin-top: 18px
+    }
+
+    .outlineBtn {
+      display: inline-block;
+      border: 1px solid #159dff;
+      border-radius: 5px;
+      padding: 10px 17px;
+      color: #aee5ff;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 900;
+      background: transparent;
+      cursor: pointer
+    }
+
+    .footer {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(5, 25, 45, .72);
+      padding: 19px 23px;
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: 1.3fr .8fr 1fr 1.1fr;
+      gap: 25px;
+      font-size: 12px;
+      color: #bfd1e4
+    }
+
+    .payments {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 12px
+    }
+
+    .pay {
+      background: #fff;
+      color: #0b2650;
+      border-radius: 6px;
+      min-width: 78px;
+      height: 33px;
+      display: grid;
+      place-items: center;
+      font-weight: 950;
+      font-size: 15px;
+      padding: 0 10px
+    }
+
+    .pay svg {
+      height: 22px;
+      max-width: 76px
+    }
+
+    .copy {
+      text-align: center;
+      color: #88a1bc;
+      font-size: 12px;
+      margin-top: 15px
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .68);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+      padding: 20px
+    }
+
+    .modal.show {
+      display: flex
+    }
+
+    .modalCard {
+      max-width: 720px;
+      background: #061a31;
+      border: 1px solid #1497ff;
+      border-radius: 14px;
+      padding: 26px;
+      box-shadow: 0 0 55px rgba(0, 140, 255, .45);
+      color: white
+    }
+
+    .closeModal {
+      float: right;
+      background: #0b8cff;
+      color: #fff;
+      border: 0;
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-weight: 900
+    }
+
+    .fupDetails {
+      margin-top: 14px;
+      text-align: left;
+      border-top: 1px solid rgba(67, 169, 255, .18);
+      padding-top: 12px;
+      font-size: 12px;
+      line-height: 1.45;
+      color: #cfe3f7
+    }
+
+    .fupDetails button {
+      margin-top: 8px;
+      width: 100%;
+      height: 30px;
+      border-radius: 5px;
+      border: 1px solid #159dff;
+      background: rgba(6, 50, 88, .75);
+      color: #bdeaff;
+      font-weight: 900;
+      font-size: 11px;
+      cursor: pointer
+    }
+
+    .socialBox {
+      margin-top: 18px
+    }
+
+    .socialGrid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 12px
+    }
+
+    .socialGrid a {
+      height: 48px;
+      border: 1px solid rgba(67, 169, 255, .32);
+      border-radius: 10px;
+      background: rgba(8, 35, 62, .7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 900;
+      transition: .25s
+    }
+
+    .socialGrid a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 18px rgba(0, 140, 255, .35)
+    }
+
+    .googleReview {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin: 12px 0;
+      color: #cfe3f7;
+      font-size: 13px
+    }
+
+    .googleBtn {
+      border: 1px solid rgba(67, 169, 255, .35);
+      background: #fff;
+      color: #222;
+      border-radius: 7px;
+      padding: 10px 12px;
+      font-weight: 900;
+      cursor: pointer
+    }
+
+    @keyframes dash {
+      to {
+        stroke-dashoffset: -240
+      }
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        r: 5;
+        opacity: 1
+      }
+
+      50% {
+        r: 10;
+        opacity: .6
+      }
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(-2deg)
+      }
+
+      50% {
+        transform: translateY(-10px) rotate(4deg)
+      }
+    }
+
+    .route {
+      stroke-dasharray: 7 12;
+      animation: dash 8s linear infinite
+    }
+
+    .dot {
+      animation: pulse 2.4s ease-in-out infinite
+    }
+
+    .mapShape {
+      transform-origin: center;
+      animation: float 7s ease-in-out infinite
+    }
+
+    @media(max-width:1100px) {
+
+      .main,
+      .hero,
+      .bottom,
+      .rightBottom,
+      .coverage {
+        grid-template-columns: 1fr
+      }
+
+      .plans {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .left {
+        border-right: 0;
+        padding: 35px 20px
+      }
+
+      .right {
+        padding: 20px
+      }
+
+      .links {
+        display: none
+      }
+
+      .nav {
+        padding: 0 20px
+      }
+
+      .phone {
+        position: relative;
+        right: auto;
+        top: auto
+      }
+
+      .visual {
+        height: auto
+      }
+
+      .icons,
+      .bar {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .step:not(:last-child):after {
+        display: none
+      }
+    }
+  
+    /* BUTOANE PLANURI - FIX DESIGN */
+    .planBuy,
+    .buy {
+      appearance: none;
+      border: 0 !important;
+      width: 100%;
+      min-height: 48px;
+      border-radius: 16px !important;
+      background: linear-gradient(135deg, #18d478 0%, #48dbff 55%, #3b82f6 100%) !important;
+      color: #02111f !important;
+      font-weight: 900 !important;
+      letter-spacing: .4px;
+      text-transform: uppercase;
+      box-shadow: 0 10px 26px rgba(72,219,255,.28), inset 0 1px 0 rgba(255,255,255,.45);
+      cursor: pointer;
+      transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+    }
+
+    .planBuy:hover,
+    .buy:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.08);
+      box-shadow: 0 14px 34px rgba(72,219,255,.38), inset 0 1px 0 rgba(255,255,255,.5);
+    }
+
+    .planBuy:active,
+    .buy:active {
+      transform: translateY(0) scale(.98);
+    }
+
+    .planBuy:disabled,
+    .buy:disabled {
+      opacity: .65;
+      cursor: wait;
+      transform: none;
+    }
+
+    .openFupBtn {
+      border-radius: 12px !important;
+      border: 1px solid rgba(72,219,255,.45) !important;
+      background: rgba(255,255,255,.08) !important;
+      color: #eaf6ff !important;
+      padding: 10px 12px !important;
+      font-weight: 800 !important;
+      cursor: pointer;
+    }
+
+    .openFupBtn:hover {
+      background: rgba(72,219,255,.16) !important;
+    }
+
+  
+    /* FUP MODAL FIX */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background: rgba(0, 0, 0, .72);
+      padding: 18px;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal.show { display: flex; }
+    .modalBox {
+      width: min(720px, 94vw);
+      max-height: 86vh;
+      overflow-y: auto;
+      background: linear-gradient(180deg, #07182b, #020914);
+      border: 1px solid rgba(72, 219, 255, .45);
+      border-radius: 22px;
+      padding: 24px;
+      color: #f4f8ff;
+      box-shadow: 0 22px 70px rgba(0,0,0,.45);
+    }
+    .modalBox h2 {
+      margin-top: 0;
+      color: #48dbff;
+      font-size: 24px;
+    }
+    .modalBox p, .modalBox li {
+      line-height: 1.55;
+      color: #eaf6ff;
+    }
+    .modalBox ul {
+      padding-left: 22px;
+    }
+    .modalClose {
+      float: right;
+      border: 0;
+      background: rgba(255,255,255,.08);
+      color: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .openFupBtn {
+      border-radius: 12px !important;
+      border: 1px solid rgba(72,219,255,.45) !important;
+      background: rgba(255,255,255,.09) !important;
+      color: #eaf6ff !important;
+      padding: 10px 12px !important;
+      font-weight: 800 !important;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+    }
+    .openFupBtn:hover { background: rgba(72,219,255,.18) !important; }
+    
+    .countries {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.countries span {
+  display: flex;
+  align-items: center;
+  background: #111;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.countries img {
+  margin-right: 6px;
+}
+
+
+    /* FIX LAYOUT FINAL - pastreaza modificarile */
+    .main {
+      grid-template-columns: minmax(0, 1fr) minmax(560px, .92fr);
+      align-items: start;
+    }
+
+    .left,
+    .right {
+      min-width: 0;
+    }
+
+    .hero {
+      grid-template-columns: minmax(0, 1fr) minmax(310px, 430px);
+      column-gap: 28px;
+      align-items: start;
+      min-height: 470px;
+    }
+
+    .visual {
+      height: 470px;
+      min-width: 0;
+      overflow: visible;
+    }
+
+    .map {
+      position: absolute;
+      left: -8px;
+      top: -6px;
+      right: 20px;
+      bottom: 70px;
+      inset: auto;
+      z-index: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      filter: drop-shadow(0 0 28px rgba(0, 151, 255, .45));
+      opacity: .98;
+    }
+
+    .map img {
+      width: 100%;
+      max-width: 460px;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 0 35px rgba(72, 219, 255, .22);
+    }
+
+    .phone {
+      right: 24px;
+      top: 72px;
+      z-index: 3;
+    }
+
+    .qr {
+      width: auto;
+      height: auto;
+      min-width: 120px;
+      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      background: #fff;
+      padding: 9px;
+      border-radius: 10px;
+    }
+
+    .qr img {
+      width: 112px !important;
+      height: 112px;
+      display: block;
+    }
+
+    .qr small {
+      color: #07325c;
+      font-weight: 800;
+      font-size: 9px;
+      line-height: 1.1;
+      text-align: center;
+    }
+
+    .bar {
+      clear: both;
+      position: relative;
+      z-index: 4;
+    }
+
+    .bottom,
+    .coverage,
+    .rightBottom,
+    .socialBox,
+    .footer {
+      position: relative;
+      z-index: 1;
+    }
+
+    .coverage {
+      overflow: hidden;
+    }
+
+    .mapSmall {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 210px;
+    }
+
+    .mapSmall svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .countries {
+      display: flex !important;
+      flex-wrap: wrap;
+      gap: 8px;
+      max-height: 252px;
+      overflow: auto;
+      padding-right: 6px;
+    }
+
+    .countries span {
+      display: inline-flex !important;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(72,219,255,.18);
+      padding: 5px 10px;
+      border-radius: 8px;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .countries img {
+      margin-right: 0;
+      width: 20px;
+      height: auto;
+      border-radius: 2px;
+      flex: 0 0 auto;
+    }
+
+    @media (max-width: 1500px) {
+      .main {
+        grid-template-columns: minmax(0, 1fr) minmax(520px, .9fr);
+      }
+
+      .left {
+        padding: 46px 34px 32px 42px;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1fr) 360px;
+      }
+
+      .visual {
+        height: 430px;
+      }
+
+      .map img {
+        max-width: 400px;
+      }
+
+      .phone {
+        width: 168px;
+        height: 305px;
+        right: 12px;
+      }
+    }
+
+    @media (max-width: 1250px) {
+      .main,
+      .hero,
+      .bottom,
+      .rightBottom,
+      .coverage {
+        grid-template-columns: 1fr;
+      }
+
+      .left {
+        border-right: 0;
+        padding: 35px 20px;
+      }
+
+      .right {
+        padding: 20px;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .visual {
+        height: 455px;
+        margin-top: 24px;
+      }
+
+      .map {
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 70px;
+      }
+
+      .phone {
+        position: absolute;
+        right: 50%;
+        transform: translateX(82%);
+        top: 86px;
+      }
+
+      .plans {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 34px; }
+      .icons,
+      .bar,
+      .plans,
+      .steps,
+      .footer {
+        grid-template-columns: 1fr;
+      }
+      .visual { height: 390px; }
+      .map img { max-width: 320px; }
+      .phone {
+        width: 150px;
+        height: 280px;
+        right: 50%;
+        transform: translateX(78%);
+      }
+    }
+
+  
+/* FIX SUPRAPUNERE PAȘI REVIEW - STRONG */
+.stepsTitle {
+  display: block !important;
+  clear: both !important;
+  margin-top: 38px !important;
+  margin-bottom: 22px !important;
+}
+
+.steps {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 38px !important;
+  position: relative !important;
+  z-index: 1 !important;
+  margin: 0 25px 0 25px !important;
+  padding-bottom: 120px !important;
+  clear: both !important;
+}
+
+.step {
+  min-height: 160px !important;
+}
+
+.bottom {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 20px !important;
+  position: relative !important;
+  z-index: 2 !important;
+  margin-top: 0 !important;
+  clear: both !important;
+}
+
+.reviewPanel {
+  grid-column: 1 / -1 !important;
+}
+
+@media (max-width: 1100px) {
+  .steps {
+    grid-template-columns: 1fr !important;
+    padding-bottom: 40px !important;
+  }
+
+  .bottom {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+
+
+/* FIX BAR BENEFICII - aerisit pe toate ecranele */
+.bar {
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)) !important;
+}
+
+@media (max-width: 700px) {
+  .bar {
+    grid-template-columns: 1fr !important;
+    padding: 18px !important;
+    gap: 14px !important;
+  }
+
+  .barItem {
+    padding: 13px 14px !important;
+  }
+}
+
+
+
+
+/* ==== LAYOUT PREMIUM PASI - FINAL ==== */
+
+.stepsTitle {
+  display: block !important;
+  text-align: left !important;
+  width: 100% !important;
+  margin: 26px 0 20px 18px !important;
+  font-size: 31px !important;
+  font-weight: 950 !important;
+  letter-spacing: -0.5px !important;
+  color: #f4f8ff !important;
+  clear: both !important;
+  position: relative !important;
+}
+
+.stepsTitle::after {
+  content: "";
+  display: block;
+  width: 92px;
+  height: 3px;
+  margin-top: 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #18d478, #48dbff, #0b8cff);
+  box-shadow: 0 0 18px rgba(72,219,255,.45);
+}
+
+/* container pași */
+.steps {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(112px, 1fr)) !important;
+  justify-content: start !important;
+  align-items: stretch !important;
+  gap: 18px !important;
+  width: 100% !important;
+  max-width: 760px !important;
+  margin: 0 0 34px 18px !important;
+  padding: 0 !important;
+  clear: both !important;
+  position: relative !important;
+}
+
+/* linie premium pe fundal între pași */
+.steps::before {
+  content: "";
+  position: absolute;
+  left: 70px;
+  right: 70px;
+  top: 47px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(24,212,120,.15), rgba(72,219,255,.75), rgba(11,140,255,.15));
+  box-shadow: 0 0 18px rgba(72,219,255,.28);
+  z-index: 0;
+}
+
+.step {
+  position: relative !important;
+  z-index: 1 !important;
+  min-height: 0 !important;
+  max-width: none !important;
+  text-align: center !important;
+  padding: 14px 10px 16px !important;
+  border-radius: 18px !important;
+  background: linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.025)) !important;
+  border: 1px solid rgba(72,219,255,.18) !important;
+  box-shadow: 0 12px 28px rgba(0,0,0,.18), inset 0 0 28px rgba(72,219,255,.035) !important;
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease !important;
+}
+
+.step:hover {
+  transform: translateY(-6px) !important;
+  border-color: rgba(72,219,255,.45) !important;
+  box-shadow: 0 18px 42px rgba(0,140,255,.22), inset 0 0 34px rgba(72,219,255,.08) !important;
+}
+
+/* dezactivează săgețile vechi */
+.step:not(:last-child):after {
+  display: none !important;
+}
+
+.stepIcon {
+  width: 86px !important;
+  height: 86px !important;
+  border-radius: 50% !important;
+  margin: 0 auto 13px auto !important;
+  background:
+    radial-gradient(circle at 30% 22%, rgba(72,219,255,.85), rgba(11,140,255,.48) 35%, rgba(7,40,73,.92) 78%) !important;
+  border: 1px solid rgba(160,236,255,.35) !important;
+  display: grid !important;
+  place-items: center !important;
+  font-size: 37px !important;
+  position: relative !important;
+  box-shadow:
+    0 0 0 6px rgba(72,219,255,.055),
+    0 0 30px rgba(72,219,255,.28),
+    inset 0 1px 0 rgba(255,255,255,.35) !important;
+}
+
+.stepIcon em {
+  position: absolute !important;
+  top: -8px !important;
+  left: 10px !important;
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 50% !important;
+  background: linear-gradient(135deg, #18d478, #48dbff) !important;
+  color: #02111f !important;
+  display: grid !important;
+  place-items: center !important;
+  font-size: 14px !important;
+  font-style: normal !important;
+  font-weight: 950 !important;
+  box-shadow: 0 0 18px rgba(24,212,120,.38) !important;
+}
+
+.step b {
+  display: block !important;
+  font-size: 15px !important;
+  line-height: 1.15 !important;
+  margin-bottom: 7px !important;
+  color: #ffffff !important;
+}
+
+.step small {
+  display: block !important;
+  font-size: 12px !important;
+  line-height: 1.35 !important;
+  color: #cfe3f7 !important;
+}
+
+/* panoul cu Livrare instant urcat puțin */
+.bar {
+  margin-top: -8px !important;
+}
+
+/* mobil/tablet */
+@media (max-width: 900px) {
+  .stepsTitle {
+    text-align: center !important;
+    margin-left: 0 !important;
+  }
+
+  .stepsTitle::after {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .steps {
+    grid-template-columns: repeat(2, minmax(130px, 1fr)) !important;
+    max-width: 390px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    gap: 16px !important;
+  }
+
+  .steps::before {
+    display: none !important;
+  }
+}
+
+@media (max-width: 460px) {
+  .steps {
+    grid-template-columns: 1fr !important;
+    max-width: 280px !important;
+  }
+}
+
+
+/* ==== PREMIUM GLOBAL DESIGN FINAL ==== */
+
+/* fundal general mai premium */
+body {
+  background:
+    radial-gradient(circle at 18% 8%, rgba(72,219,255,.22) 0, rgba(11,140,255,.12) 23%, transparent 46%),
+    radial-gradient(circle at 82% 18%, rgba(24,212,120,.12) 0, transparent 34%),
+    linear-gradient(135deg, #020914 0%, #041426 48%, #01050c 100%) !important;
+}
+
+/* navigatie premium */
+.nav {
+  backdrop-filter: blur(18px) !important;
+  background: rgba(2, 10, 22, .72) !important;
+  box-shadow: 0 10px 34px rgba(0,0,0,.22) !important;
+}
+
+.logo {
+  border-color: rgba(72,219,255,.9) !important;
+  background: linear-gradient(135deg, rgba(24,212,120,.28), rgba(72,219,255,.18)) !important;
+  box-shadow: 0 0 24px rgba(72,219,255,.38) !important;
+}
+
+.links a {
+  opacity: .88 !important;
+  transition: opacity .2s ease, color .2s ease !important;
+}
+
+.links a:hover {
+  color: #48dbff !important;
+  opacity: 1 !important;
+}
+
+/* hero mai premium */
+.hero h1 {
+  letter-spacing: -1.2px !important;
+  text-shadow: 0 0 30px rgba(72,219,255,.12) !important;
+}
+
+.hero p {
+  color: #d6e8fb !important;
+}
+
+.mini {
+  padding: 10px 11px !important;
+  border-radius: 14px !important;
+  background: rgba(255,255,255,.045) !important;
+  border: 1px solid rgba(72,219,255,.13) !important;
+}
+
+.mini i {
+  border-color: rgba(72,219,255,.75) !important;
+  box-shadow: 0 0 16px rgba(72,219,255,.16) !important;
+}
+
+.btn,
+.outlineBtn {
+  border-radius: 14px !important;
+  transition: transform .22s ease, box-shadow .22s ease, filter .22s ease !important;
+}
+
+.btn {
+  background: linear-gradient(135deg, #18d478 0%, #48dbff 52%, #0b8cff 100%) !important;
+  color: #02111f !important;
+  border: 0 !important;
+  box-shadow: 0 14px 35px rgba(72,219,255,.28), inset 0 1px 0 rgba(255,255,255,.45) !important;
+}
+
+/* telefon/QR */
+.phone {
+  border-color: #020914 !important;
+  background: linear-gradient(180deg, #0b8cff, #063a75 72%, #031c39) !important;
+  box-shadow:
+    0 0 0 3px rgba(72,219,255,.35),
+    0 34px 80px rgba(0,0,0,.62),
+    0 0 55px rgba(72,219,255,.22) !important;
+}
+
+.qr {
+  border-radius: 15px !important;
+  box-shadow: 0 18px 34px rgba(0,0,0,.25) !important;
+}
+
+/* panoul beneficii */
+.bar {
+  border-radius: 22px !important;
+  padding: 26px !important;
+  background:
+    linear-gradient(180deg, rgba(6,31,55,.9), rgba(4,18,34,.72)) !important;
+  border: 1px solid rgba(72,219,255,.28) !important;
+  box-shadow: 0 16px 42px rgba(0,0,0,.22), inset 0 0 42px rgba(72,219,255,.055) !important;
+}
+
+.barItem {
+  align-items: center !important;
+  border-radius: 18px !important;
+  background: linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.03)) !important;
+  border: 1px solid rgba(72,219,255,.16) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06) !important;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease !important;
+}
+
+.barItem:hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(72,219,255,.38) !important;
+  box-shadow: 0 12px 28px rgba(0,140,255,.16), inset 0 1px 0 rgba(255,255,255,.1) !important;
+}
+
+/* carduri generale */
+.box,
+.plan,
+.coverage,
+.footer {
+  border-radius: 22px !important;
+  background:
+    linear-gradient(180deg, rgba(7,31,56,.84), rgba(3,17,32,.68)) !important;
+  border: 1px solid rgba(72,219,255,.23) !important;
+  box-shadow:
+    0 16px 42px rgba(0,0,0,.22),
+    inset 0 0 40px rgba(72,219,255,.045) !important;
+}
+
+.box h3,
+.coverage h3,
+.plan h3 {
+  letter-spacing: -.3px !important;
+}
+
+/* planuri premium */
+.plansHead h2 {
+  letter-spacing: -1px !important;
+}
+
+.plan {
+  overflow: hidden !important;
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease !important;
+}
+
+.plan::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(72,219,255,.16), transparent 42%);
+  pointer-events: none;
+}
+
+.plan:hover {
+  transform: translateY(-7px) !important;
+  border-color: rgba(72,219,255,.5) !important;
+  box-shadow: 0 22px 55px rgba(0,140,255,.2), inset 0 0 45px rgba(72,219,255,.07) !important;
+}
+
+.plan.pop {
+  border-color: rgba(24,212,120,.72) !important;
+  box-shadow:
+    0 0 30px rgba(24,212,120,.22),
+    0 22px 55px rgba(0,140,255,.16),
+    inset 0 0 48px rgba(24,212,120,.08) !important;
+}
+
+.tag {
+  background: linear-gradient(135deg, #18d478, #48dbff) !important;
+  color: #02111f !important;
+  box-shadow: 0 0 20px rgba(24,212,120,.28) !important;
+}
+
+.price {
+  color: #fff !important;
+  text-shadow: 0 0 22px rgba(72,219,255,.22) !important;
+}
+
+.buy,
+.planBuy {
+  border-radius: 16px !important;
+}
+
+/* FAQ si recenzii */
+.faq details,
+.quote,
+.userReview {
+  border-radius: 15px !important;
+  background: rgba(255,255,255,.055) !important;
+  border: 1px solid rgba(72,219,255,.16) !important;
+}
+
+.faq summary {
+  color: #f4f8ff !important;
+}
+
+/* acoperire */
+.countries span {
+  background: rgba(255,255,255,.07) !important;
+  border: 1px solid rgba(72,219,255,.18) !important;
+  border-radius: 999px !important;
+  transition: transform .18s ease, background .18s ease !important;
+}
+
+.countries span:hover {
+  transform: translateY(-2px) !important;
+  background: rgba(72,219,255,.12) !important;
+}
+
+/* social */
+.socialGrid a {
+  border-radius: 16px !important;
+  background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03)) !important;
+}
+
+/* formular recenzie */
+.reviewForm input,
+.reviewForm textarea,
+.reviewForm select {
+  border-radius: 14px !important;
+  background: rgba(1,13,27,.75) !important;
+}
+
+.reviewForm button {
+  border-radius: 14px !important;
+  background: linear-gradient(135deg, #18d478, #48dbff, #0b8cff) !important;
+  color: #02111f !important;
+  font-weight: 950 !important;
+}
+
+/* modal */
+.modalBox {
+  border-radius: 24px !important;
+  background: linear-gradient(180deg, #071e36, #020914) !important;
+  border-color: rgba(72,219,255,.45) !important;
+}
+
+/* responsive premium */
+@media (max-width: 900px) {
+  .left,
+  .right {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  .bar {
+    padding: 18px !important;
+  }
+}
+
+
+/* ==== FINAL CONVERSION BOOSTERS ==== */
+
+.trustBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.trustBadges span {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.055);
+  border: 1px solid rgba(72,219,255,.18);
+  color: #d8efff;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.planTrust {
+  margin-top: 12px;
+  display: grid;
+  gap: 5px;
+  text-align: left;
+  font-size: 12px;
+  color: #cfe3f7;
+  padding: 10px 11px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.055);
+  border: 1px solid rgba(72,219,255,.14);
+}
+
+.planTrust span {
+  display: block;
+}
+
+.planTrust strong {
+  margin-top: 4px;
+  color: #18d478;
+  font-size: 12px;
+}
+
+.whatsappFloat {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 999999;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 132px;
+  height: 48px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #25D366, #18d478);
+  color: #02111f;
+  font-weight: 950;
+  text-decoration: none;
+  box-shadow: 0 16px 36px rgba(37,211,102,.32), inset 0 1px 0 rgba(255,255,255,.45);
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+
+.whatsappFloat:hover {
+  transform: translateY(-4px);
+  filter: brightness(1.05);
+  box-shadow: 0 20px 46px rgba(37,211,102,.42), inset 0 1px 0 rgba(255,255,255,.5);
+}
+
+@media (max-width: 700px) {
+  .trustBadges {
+    justify-content: center;
+  }
+
+  .whatsappFloat {
+    right: 14px;
+    bottom: 14px;
+    min-width: 118px;
+    height: 44px;
+    font-size: 13px;
+  }
+}
+
+
+
+/* ==== CHECKOUT PANEL - inlocuieste prompt browser ==== */
+.checkoutOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  background: rgba(0,0,0,.72);
+  backdrop-filter: blur(10px);
+}
+.checkoutOverlay.show { display: flex; }
+.checkoutPanel {
+  width: min(520px, 94vw);
+  border-radius: 24px;
+  border: 1px solid rgba(72,219,255,.45);
+  background: linear-gradient(180deg, #071e36, #020914);
+  box-shadow: 0 28px 80px rgba(0,0,0,.55), 0 0 45px rgba(72,219,255,.18);
+  padding: 24px;
+  color: #f4f8ff;
+  position: relative;
+}
+.checkoutClose {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255,255,255,.08);
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+.checkoutPanel h2 {
+  margin: 0 44px 8px 0;
+  font-size: 26px;
+  line-height: 1.15;
+}
+.checkoutPanel p {
+  margin: 0 0 18px;
+  color: #cfe3f7;
+  line-height: 1.45;
+}
+.checkoutSummary {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  margin: 14px 0 18px;
+  padding: 14px 15px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.065);
+  border: 1px solid rgba(72,219,255,.18);
+}
+.checkoutSummary small { color: #b7cbe2; display:block; margin-bottom:4px; }
+.checkoutSummary strong { color: #48dbff; font-size: 18px; }
+.checkoutForm { display: grid; gap: 12px; }
+.checkoutForm label {
+  display: grid;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 900;
+  color: #eaf6ff;
+}
+.checkoutForm input {
+  width: 100%;
+  height: 48px;
+  border-radius: 14px;
+  border: 1px solid rgba(72,219,255,.25);
+  background: rgba(1,13,27,.78);
+  color: #fff;
+  padding: 0 13px;
+  font-size: 15px;
+  outline: none;
+}
+.checkoutForm input:focus {
+  border-color: rgba(72,219,255,.75);
+  box-shadow: 0 0 0 3px rgba(72,219,255,.12);
+}
+.checkoutActions {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 10px;
+  margin-top: 8px;
+}
+.checkoutCancel, .checkoutSubmit {
+  min-height: 48px;
+  border-radius: 16px;
+  font-weight: 950;
+  cursor: pointer;
+}
+.checkoutCancel {
+  border: 1px solid rgba(72,219,255,.28);
+  background: rgba(255,255,255,.07);
+  color: #eaf6ff;
+}
+.checkoutSubmit {
+  border: 0;
+  background: linear-gradient(135deg, #18d478 0%, #48dbff 55%, #3b82f6 100%);
+  color: #02111f;
+  box-shadow: 0 12px 28px rgba(72,219,255,.25), inset 0 1px 0 rgba(255,255,255,.45);
+}
+.checkoutSubmit:disabled { opacity: .65; cursor: wait; }
+.checkoutError {
+  display: none;
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255, 70, 70, .12);
+  border: 1px solid rgba(255, 90, 90, .25);
+  color: #ffd6d6;
+  font-size: 13px;
+}
+.checkoutError.show { display: block; }
+@media (max-width: 520px) {
+  .checkoutActions { grid-template-columns: 1fr; }
+  .checkoutPanel { padding: 20px; }
+}
+
+.offerBtn {
+  width: 100%;
+  min-height: 48px;
+  border: 0;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #18d478 0%, #48dbff 55%, #3b82f6 100%);
+  color: #02111f;
+  font-weight: 900;
+  cursor: pointer;
+}
+    
+
+
+/* ==== PREMIUM UPGRADE FINAL - sigur, fara sa schimbe functiile ==== */
+.hero {
+  position: relative !important;
+  overflow: visible !important;
+}
+
+.visual::before {
+  content: "";
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(72,219,255,.20), transparent 68%);
+  filter: blur(4px);
+  right: 12px;
+  top: 22px;
+  z-index: 0;
+}
+
+.map {
+  border-radius: 26px !important;
+  padding: 14px !important;
+  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02)) !important;
+  border: 1px solid rgba(72,219,255,.18) !important;
+  box-shadow: 0 24px 60px rgba(0,0,0,.28), inset 0 0 38px rgba(72,219,255,.05) !important;
+}
+
+.map img {
+  border-radius: 22px !important;
+  transform: rotate(-1.5deg) !important;
+  filter: saturate(1.15) contrast(1.08) drop-shadow(0 0 28px rgba(72,219,255,.24)) !important;
+}
+
+.phone {
+  border-radius: 38px !important;
+  border: 5px solid rgba(2,9,20,.96) !important;
+  background:
+    radial-gradient(circle at 35% 18%, rgba(72,219,255,.65), transparent 28%),
+    linear-gradient(180deg, #0b8cff 0%, #063b78 62%, #02172f 100%) !important;
+  box-shadow:
+    0 0 0 3px rgba(72,219,255,.38),
+    0 36px 88px rgba(0,0,0,.68),
+    0 0 58px rgba(72,219,255,.28) !important;
+  animation: phoneFloat 6s ease-in-out infinite;
+}
+
+.phone h2 {
+  letter-spacing: 1px !important;
+  text-shadow: 0 0 24px rgba(255,255,255,.22) !important;
+}
+
+.qr {
+  border-radius: 18px !important;
+  box-shadow: 0 18px 36px rgba(0,0,0,.32) !important;
+}
+
+@keyframes phoneFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+
+.plans {
+  gap: 20px !important;
+}
+
+.plan {
+  border-radius: 26px !important;
+  padding: 32px 18px 21px !important;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(72,219,255,.18), transparent 42%),
+    linear-gradient(180deg, rgba(6,28,52,.93), rgba(2,10,22,.84)) !important;
+  border: 1px solid rgba(72,219,255,.30) !important;
+  box-shadow: 0 18px 46px rgba(0,0,0,.28), inset 0 0 38px rgba(72,219,255,.05) !important;
+}
+
+.plan h3 {
+  font-size: 22px !important;
+  margin-bottom: 14px !important;
+}
+
+.price {
+  font-size: 34px !important;
+  color: #48dbff !important;
+}
+
+.plan.pop {
+  border-color: rgba(24,212,120,.82) !important;
+  box-shadow: 0 0 34px rgba(24,212,120,.22), 0 22px 56px rgba(0,140,255,.18) !important;
+}
+
+.tag {
+  border-radius: 999px !important;
+  padding: 7px 24px !important;
+}
+
+.review {
+  grid-template-columns: minmax(170px, 250px) minmax(0, 1fr) !important;
+  gap: 22px !important;
+}
+
+.quote,
+.userReview {
+  min-height: auto !important;
+  border-radius: 18px !important;
+  background: linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.035)) !important;
+  border: 1px solid rgba(72,219,255,.18) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06) !important;
+}
+
+.userReviews {
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)) !important;
+}
+
+.reviewForm button {
+  min-height: 46px !important;
+  cursor: pointer !important;
+}
+
+.socialBox {
+  overflow: hidden !important;
+}
+
+.socialGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+}
+
+.socialGrid a {
+  height: 62px !important;
+  border-radius: 20px !important;
+  font-size: 16px !important;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(72,219,255,.18), transparent 48%),
+    linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.035)) !important;
+  border: 1px solid rgba(72,219,255,.22) !important;
+  box-shadow: 0 14px 32px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.06) !important;
+}
+
+.partnerAd {
+  margin-top: 18px;
+  min-height: 178px;
+  border-radius: 26px;
+  overflow: hidden;
+  border: 1px solid rgba(24,212,120,.55);
+  background:
+    linear-gradient(90deg, rgba(2,9,20,.96) 0%, rgba(2,9,20,.76) 45%, rgba(2,9,20,.30) 100%),
+    url("https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=80");
+  background-size: cover;
+  background-position: center;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  box-shadow: 0 20px 50px rgba(0,0,0,.32), 0 0 30px rgba(24,212,120,.14);
+}
+
+.partnerAd small {
+  color: #18d478;
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: .9px;
+}
+
+.partnerAd h3 {
+  margin: 8px 0 10px;
+  font-size: 28px;
+  color: white;
+  letter-spacing: -.5px;
+}
+
+.partnerAd p {
+  margin: 0;
+  max-width: 560px;
+  color: #e4f3ff;
+  line-height: 1.5;
+}
+
+.partnerAd a {
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 17px;
+  padding: 15px 21px;
+  background: linear-gradient(135deg, #18d478, #48dbff, #0b8cff);
+  color: #02111f;
+  font-weight: 950;
+  box-shadow: 0 14px 34px rgba(24,212,120,.25), inset 0 1px 0 rgba(255,255,255,.45);
+}
+
+@media(max-width:900px) {
+  .review {
+    grid-template-columns: 1fr !important;
+  }
+
+  .socialGrid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .partnerAd {
+    flex-direction: column;
+    text-align: center;
+    padding: 25px 18px;
+  }
+
+  .partnerAd a {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+</style>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="brand">
+      <div class="logo"></div>eSIM <span>Nelimitat</span>
+    </div>
+    <nav class="links"><a href="#acasa">Acasă</a><a href="#planuri">Planuri</a><a href="#cum">Cum funcționează</a><a
+        href="#acoperire">Acoperire</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></nav>
+  </header>
+  <main class="main">
+    <section class="left" id="acasa">
+      <div class="hero">
+        <div>
+          <h1>Internet Nelimitat<br>în Toată Europa</h1>
+          <p>Conectează-te instant în peste 40 de țări din Europa.<br>Fără SIM fizic. Fără contracte. Fără griji.</p>
+          <div class="icons">
+            <div class="mini"><i>◷</i><span>Activare în<br><b>10 minute</b></span></div>
+            <div class="mini"><i>∞</i><span>Nelimitat<br><b>(FUP aplicabil)</b></span></div>
+            <div class="mini"><i>☎</i><span>Suport<br><b>24/7</b></span></div>
+          </div><a class="btn" href="#planuri">VEZI PLANURILE <b>→</b></a>
+          <div class="trust">Excelent&nbsp; <b>4.9 din 5</b> <span class="star">★</span> Trustpilot</div>
+          <div class="trustBadges">
+            <span>✔ 100+ clienți mulțumiți</span>
+            <span>✔ Activare rapidă</span>
+            <span>✔ Plată securizată</span>
+          </div>
+        </div>
+        <div class="visual">
+          <div class="map">
+  <img src="/europa.png" alt="Harta Europa" style="width:100%; max-width:460px;">
+</div>
+          <div class="phone">
+  <h2>eSIM</h2>
+
+  <div class="qr">
+    <img 
+      src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://esim-euro.com" 
+      alt="QR eSIM"
+      style="width:120px;">
+
+    <small>Scanează și conectează-te</small>
+  </div>
+</div>
+      </div>
+      
+<h2 class="stepsTitle" id="cum">Cum funcționează?</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="stepIcon"><em>1</em>🛒</div><b>Alegi planul</b><br><small>Selectezi durata care ți se
+            potrivește</small>
+        </div>
+        <div class="step">
+          <div class="stepIcon"><em>2</em>💳</div><b>Plătești online</b><br><small>Plată securizată 100%</small>
+        </div>
+        <div class="step">
+          <div class="stepIcon"><em>3</em>📱</div><b>Activezi eSIM-ul</b><br><small>Scanezi QR și ești conectat</small>
+        </div>
+      </div>
+<div class="bar">
+        <div class="barItem">🚚<div><b>Livrare instant</b><small>Primești eSIM pe email/WhatsApp</small></div>
+        </div>
+        <div class="barItem">🌐<div><b>Fără roaming</b><small>Internet local, oriunde</small></div>
+        </div>
+        <div class="barItem">🔒<div><b>Plăți sigure</b><small>Stripe • Apple Pay • GPay</small></div>
+        </div>
+        <div class="barItem">↻<div><b>Garanție returnare</b><small>Bani înapoi în 24 ore</small></div>
+        </div>
+      </div>
+      <div class="stepsSpacer" aria-hidden="true" style="height:30px;clear:both;"></div>
+      <div class="bottom">
+        <div class="box faq" id="faq">
+          <h3>Întrebări frecvente</h3>
+          <details open>
+            <summary>Funcționează în toată Europa?</summary>
+            <p>Funcționează în țările listate la Acoperire. Activezi eSIM-ul, pornești datele mobile și telefonul se
+              conectează automat la o rețea parteneră.</p>
+          </details>
+          <details>
+            <summary>Este într-adevăr nelimitat?</summary>
+            <p>Da, internetul este nelimitat, cu Politică de Utilizare Echitabilă (FUP). După consum foarte mare, viteza
+              poate fi redusă temporar.</p>
+          </details>
+          <details>
+            <summary>Pot folosi hotspot / tethering?</summary>
+            <p>Da, poți folosi hotspot acolo unde telefonul și rețeaua locală permit acest lucru.</p>
+          </details>
+          <details>
+            <summary>Pot primi rambursare?</summary>
+            <p>Da. Rambursarea este posibilă în 24 ore dacă eSIM-ul nu a fost activat sau folosit.</p>
+          </details>
+        </div>
+        <div class="box">
+          <h3>Clienții noștri ne recomandă</h3>
+          <div class="review">
+            <div>
+              <h4>Excelent</h4>
+              <div class="greenStars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <small><b>Recenzii reale</b> de la clienți</small>
+              <p><span class="star">★</span> <b>Trustpilot</b></p>
+            </div>
+            <div class="quote" id="featuredReview">Primele recenzii reale vor apărea aici după ce clienții publică feedback.</div>
+          </div>
+        </div>
+        <div class="box reviewPanel">
+          <h3>Lasă o recenzie</h3>
+          <p style="margin-top:-6px;color:#cfe3f7;font-size:13px">Introdu emailul tău, ratingul și experiența ta.</p>
+          <form class="reviewForm" id="reviewForm">
+            <input id="reviewEmail" type="email" placeholder="Email valid" required>
+            <select id="reviewStars">
+              <option value="5">★★★★★ 5</option>
+              <option value="4">★★★★☆ 4</option>
+              <option value="3">★★★☆☆ 3</option>
+              <option value="2">★★☆☆☆ 2</option>
+              <option value="1">★☆☆☆☆ 1</option>
+            </select>
+            <textarea id="reviewText" placeholder="Scrie recenzia ta..." required></textarea>
+            <button type="submit">PUBLICĂ RECENZIA</button>
+          </form>
+          <div class="userReviews" id="userReviews"></div>
+        </div>
+      </div>
+    </section>
+    <section class="right">
+      <div class="plansHead" id="planuri">
+        <h2>Planuri Nelimitate</h2>
+        <p>Alege durata care ți se potrivește cel mai bine</p>
+      </div>
+      <div class="plans">
+        <article class="plan">
+          <h3>Europa plan</h3>
+          <div><b>Nelimitat</b><br>Internet</div>
+          <div class="price">X</div><button class="offerBtn" data-plan="plan" type="button">CERE ACUM</button>
+          <div class="planTrust">
+            <span>✔ Activare instant</span>
+            <span>✔ Fără contract</span>
+            <span>✔ Rambursare 24h</span>
+          </div>
+          <ul>
+            <li>Nelimitat (FUP aplicabil)</li>
+            <li>Peste 40 țări incluse</li>
+            <li>Activare instant</li>
+          </ul><button type="button" class="openFupBtn">CITEȘTE DETALII FUP</button>
+        </article>
+        <article class="plan">
+          <h3>Europa 3 zile</h3>
+          <div><b>Nelimitat</b><br>Internet</div>
+          <div class="price">10.99€</div><button class="buy planBuy" data-plan="3" type="button">CUMPĂRĂ ACUM</button>
+          <div class="planTrust">
+            <span>✔ Activare instant</span>
+            <span>✔ Fără contract</span>
+            <span>✔ Rambursare 24h</span>
+          </div>
+          <ul>
+            <li>Valabil 3 zile</li>
+            <li>Nelimitat (FUP aplicabil)</li>
+            <li>Peste 40 țări incluse</li>
+            <li>Activare instant</li>
+          </ul><button type="button" class="openFupBtn">CITEȘTE DETALII FUP</button>
+        </article>
+        <article class="plan pop">
+          <div class="tag">CEL MAI POPULAR</div>
+          <h3>Europa 400 GB</h3>
+          <div><b>400 GB</b><br>Internet</div>
+          <div class="price">55.99€</div><button class="buy planBuy" data-plan="400GB" type="button">CUMPĂRĂ ACUM</button>
+          <div class="planTrust">
+            <span>✔ Activare instant</span>
+            <span>✔ Fără contract</span>
+            <span>✔ Rambursare 24h</span>
+          </div>
+          <ul>
+            <li>Valabil 30 zile</li>
+            <li>400 GB (FUP aplicabil)</li>
+            <li>Peste 40 țări incluse</li>
+            <li>Activare instant</li>
+          </ul><button type="button" class="openFupBtn">CITEȘTE DETALII FUP</button>
+        </article>
+        <article class="plan">
+          <h3>Europa 30 zile</h3>
+          <div><b>Nelimitat</b><br>Internet</div>
+          <div class="price">59.99€</div><button class="buy planBuy" data-plan="30" type="button">CUMPĂRĂ ACUM</button>
+          <div class="planTrust">
+            <span>✔ Activare instant</span>
+            <span>✔ Fără contract</span>
+            <span>✔ Rambursare 24h</span>
+          </div>
+          <ul>
+            <li>Valabil 30 zile</li>
+            <li>Nelimitat (FUP aplicabil)</li>
+            <li>Peste 40 țări incluse</li>
+            <li>Activare instant</li>
+          </ul><button type="button" class="openFupBtn">CITEȘTE DETALII FUP</button>
+        </article>
+      </div>
+      <div class="coverage" id="acoperire">
+        <div>
+          <h3>Acoperire</h3>
+          <p>Funcționează în peste 40 de țări din Europa.<br>Rețele rapide. Fără roaming.</p>
+        </div>
+        <div class="mapSmall" id="mapSmall"></div>
+        <div>
+         <div class="countries">
+
+<span><img src="https://flagcdn.com/w20/ro.png"> România</span>
+<span><img src="https://flagcdn.com/w20/it.png"> Italia</span>
+<span><img src="https://flagcdn.com/w20/es.png"> Spania</span>
+<span><img src="https://flagcdn.com/w20/fr.png"> Franța</span>
+<span><img src="https://flagcdn.com/w20/de.png"> Germania</span>
+<span><img src="https://flagcdn.com/w20/nl.png"> Olanda</span>
+<span><img src="https://flagcdn.com/w20/be.png"> Belgia</span>
+<span><img src="https://flagcdn.com/w20/at.png"> Austria</span>
+<span><img src="https://flagcdn.com/w20/ch.png"> Elveția</span>
+<span><img src="https://flagcdn.com/w20/tr.png"> Turcia</span>
+<span><img src="https://flagcdn.com/w20/gr.png"> Grecia</span>
+<span><img src="https://flagcdn.com/w20/pt.png"> Portugalia</span>
+<span><img src="https://flagcdn.com/w20/pl.png"> Polonia</span>
+<span><img src="https://flagcdn.com/w20/cz.png"> Cehia</span>
+<span><img src="https://flagcdn.com/w20/se.png"> Suedia</span>
+<span><img src="https://flagcdn.com/w20/dk.png"> Danemarca</span>
+<span><img src="https://flagcdn.com/w20/no.png"> Norvegia</span>
+<span><img src="https://flagcdn.com/w20/fi.png"> Finlanda</span>
+<span><img src="https://flagcdn.com/w20/ie.png"> Irlanda</span>
+<span><img src="https://flagcdn.com/w20/gb.png"> Regatul Unit</span>
+<span><img src="https://flagcdn.com/w20/hu.png"> Ungaria</span>
+<span><img src="https://flagcdn.com/w20/bg.png"> Bulgaria</span>
+<span><img src="https://flagcdn.com/w20/hr.png"> Croația</span>
+<span><img src="https://flagcdn.com/w20/si.png"> Slovenia</span>
+<span><img src="https://flagcdn.com/w20/sk.png"> Slovacia</span>
+<span><img src="https://flagcdn.com/w20/lt.png"> Lituania</span>
+<span><img src="https://flagcdn.com/w20/lv.png"> Letonia</span>
+<span><img src="https://flagcdn.com/w20/ee.png"> Estonia</span>
+<span><img src="https://flagcdn.com/w20/lu.png"> Luxemburg</span>
+<span><img src="https://flagcdn.com/w20/mt.png"> Malta</span>
+<span><img src="https://flagcdn.com/w20/cy.png"> Cipru</span>
+<span><img src="https://flagcdn.com/w20/is.png"> Islanda</span>
+<span><img src="https://flagcdn.com/w20/li.png"> Liechtenstein</span>
+<span><img src="https://flagcdn.com/w20/mc.png"> Monaco</span>
+<span><img src="https://flagcdn.com/w20/ad.png"> Andorra</span>
+<span><img src="https://flagcdn.com/w20/sm.png"> San Marino</span>
+<span><img src="https://flagcdn.com/w20/va.png"> Vatican</span>
+<span><img src="https://flagcdn.com/w20/rs.png"> Serbia</span>
+<span><img src="https://flagcdn.com/w20/mk.png"> Macedonia de Nord</span>
+<span><img src="https://flagcdn.com/w20/al.png"> Albania</span>
+
+</div>
+
+      </div>
+      </div>
+      <div class="rightBottom">
+        <div class="box">
+          <h3>Politica de utilizare echitabilă (FUP)</h3>
+          <p>Deși oferim internet nelimitat, pentru o experiență corectă tuturor se aplică o Politică de Utilizare
+            Echitabilă.</p><button class="outlineBtn" id="openFup">CITEȘTE POLITICA COMPLETĂ</button>
+        </div>
+        <div class="box">
+          <h3>Ai nevoie de ajutor?</h3>
+          <p>Echipa noastră de suport este disponibilă 24/7.</p>
+          <p>Email: <span id="supportEmailText" style="color:#51c7ff">esimeuro@gmail.com</span></p><a class="btn" id="supportEmailBtn" href="https://mail.google.com/mail/?view=cm&fs=1&to=esimeuro@gmail.com" target="_blank" rel="noopener"
+            style="min-width:165px;height:38px;font-size:12px">CONTACTEAZĂ-NE</a>
+        </div>
+      </div>
+      <div class="box socialBox">
+        <h3>Urmărește-ne</h3>
+        <div class="socialGrid"><a id="linkTikTok" href="https://www.tiktok.com/@esimeuro.com?_r=1&_t=ZN-95yVKH6qWUo" target="_blank" rel="noopener" title="TikTok">TikTok</a><a
+            id="linkInstagram" href="https://www.instagram.com/esimeuro?igsh=MW9mczJrbGd6YjQyNA==" target="_blank" rel="noopener" title="Instagram">Instagram</a><a id="linkFacebook" href="#"
+            target="_blank" rel="noopener" title="Facebook">Facebook (în curând)</a></div>
+      </div>
+
+      <div class="partnerAd">
+        <div>
+          <small>PARTENER RECOMANDAT</small>
+          <h3>Joacă Metin2 pe serverul nostru partener</h3>
+          <p>Intră într-o comunitate activă, evenimente regulate și gameplay clasic Metin2.</p>
+        </div>
+
+        <a href="LINK_SITE_METIN2" target="_blank" rel="noopener">VIZITEAZĂ SERVERUL →</a>
+      </div>
+      <footer class="footer" id="contact">
+        <div><b><span style="color:#139dff">▯</span> eSIM Nelimitat</b>
+          <p>Internet nelimitat în toată Europa.<br>Fără complicații. Fără limite.</p>
+        </div>
+        <div><b>SUPORT RAPID</b>
+          <p>Gmail suport: <span id="footerSupportEmail">esimeuro@gmail.com</span><br>WhatsApp: <a
+              href="https://wa.me/40733914329?text=Salut%20vreau%20detalii" target="_blank" rel="noopener">deschide chat</a><br>Discord: <a id="footerDiscord" href="#"
+              target="_blank" rel="noopener">în curând</a></p>
+        </div>
+        <div><b>INFORMAȚII</b>
+          <p>Disponibil 24/7<br>Politica de rambursare<br>Politica FUP</p>
+        </div>
+        <div><b>PLĂȚI SIGURE</b>
+          <div class="payments"><span class="pay"><svg viewBox="0 0 90 36"><text x="4" y="25" font-size="23"
+                  font-weight="800" fill="#635bff">stripe</text></svg></span><span class="pay"><svg
+                viewBox="0 0 90 36"><text x="8" y="24" font-size="20" font-weight="800" fill="#111">
+                  Pay</text></svg></span><span class="pay"><svg viewBox="0 0 90 36"><text x="7" y="24" font-size="19"
+                  font-weight="800" fill="#4285f4">G</text><text x="25" y="24" font-size="18" font-weight="800"
+                  fill="#222">Pay</text></svg></span><span class="pay"><svg viewBox="0 0 90 36"><text x="10" y="25"
+                  font-size="23" font-weight="900" fill="#1434CB">VISA</text></svg></span><span class="pay"><svg
+                viewBox="0 0 90 36">
+                <circle cx="35" cy="18" r="11" fill="#eb001b" />
+                <circle cx="48" cy="18" r="11" fill="#f79e1b" opacity=".92" />
+              </svg></span></div>
+        </div>
+      </footer>
+      <div class="copy">© 2026 eSimEuro. Toate drepturile rezervate.</div>
+    </section>
+  </main>
+  
+<div class="modal" id="fupModal">
+  <div class="modalBox">
+    <button class="modalClose" id="closeFup" type="button">×</button>
+    <h2>Politica de utilizare echitabilă (FUP)</h2>
+
+    <p><b>Internet nelimitat cu utilizare echitabilă.</b> Planurile includ trafic nelimitat, însă pentru menținerea calității rețelei se aplică o politică FUP.</p>
+
+    <ul>
+      <li><b>Până la 1GB</b> sunt oferite la viteză maximă, în funcție de rețeaua disponibilă.</li>
+      <li>După consumarea primului 1GB, viteza poate fi ajustată, de obicei în intervalul <b>8–25 Mbps</b>.</li>
+      <li>Viteza reală poate varia în funcție de țară, operator, semnal, congestia rețelei și tipul dispozitivului.</li>
+      <li>Serviciul rămâne activ și utilizabil pentru navigare, WhatsApp, hărți, email, social media și streaming la calitate normală.</li>
+      <li>Hotspot/tethering este permis acolo unde rețeaua locală îl permite.</li>
+      <li>Nu există contract fizic și activarea se face online.</li>
+    </ul>
+
+    <p><b>Important:</b> FUP nu înseamnă că internetul se oprește. Înseamnă doar că viteza poate fi redusă după pragul de utilizare, pentru ca toți utilizatorii să beneficieze de o experiență corectă.</p>
+  </div>
+</div>
+
+
+
+  <!-- Checkout panel: inlocuieste popup-urile prompt() -->
+  <div class="checkoutOverlay" id="checkoutOverlay" aria-hidden="true">
+    <div class="checkoutPanel" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+      <button type="button" class="checkoutClose" id="checkoutClose" aria-label="Închide">×</button>
+      <h2 id="checkoutTitle">Finalizează comanda</h2>
+      <p>Completează datele, apoi mergi mai departe către plata securizată.</p>
+
+      <div class="checkoutSummary">
+        <div>
+          <small>Plan ales</small>
+          <b id="checkoutPlanName">Europa</b>
+        </div>
+        <div style="text-align:right">
+          <small>Preț</small>
+          <strong id="checkoutPlanPrice">—</strong>
+        </div>
+      </div>
+
+      <form class="checkoutForm" id="checkoutForm">
+        <label>
+          Nume complet
+          <input id="checkoutName" name="name" type="text" autocomplete="name" placeholder="Ex: Ion Popescu" required>
+        </label>
+        <label>
+          Email
+          <input id="checkoutEmail" name="email" type="email" autocomplete="email" placeholder="Ex: ion@email.com" required>
+        </label>
+        <label>
+          Telefon
+          <input id="checkoutPhone" name="phone" type="tel" autocomplete="tel" placeholder="Ex: 0712345678" required>
+        </label>
+
+        <div class="checkoutActions">
+          <button type="button" class="checkoutCancel" id="checkoutCancel">Înapoi</button>
+          <button type="submit" class="checkoutSubmit" id="checkoutSubmit">Continuă spre plată</button>
+        </div>
+        <div class="checkoutError" id="checkoutError"></div>
+      </form>
+    </div>
+  </div>
+
+  <div class="checkoutOverlay" id="offerOverlay">
+  <div class="checkoutPanel">
+    <button type="button" class="checkoutClose" id="offerClose">×</button>
+    <h2>Cere ofertă</h2>
+    <p>Completează datele și te contactăm rapid.</p>
+
+    <form class="checkoutForm" id="offerForm">
+      <label>
+        Nume complet
+        <input id="offerName" type="text" required>
+      </label>
+
+      <label>
+        Gmail / Email
+        <input id="offerEmail" type="email" required>
+      </label>
+
+      <label>
+        Număr telefon
+        <input id="offerPhone" type="tel" required>
+      </label>
+
+      <label>
+        Descriere
+        <input id="offerDesc" type="text" placeholder="Ex: vreau eSIM 3 zile pentru Italia" required>
+      </label>
+
+      <button type="submit" class="checkoutSubmit">Trimite pe WhatsApp</button>
+    </form>
+  </div>
+</div>
+  
+  <script>
+    const mapSvg = `<svg viewBox="0 0 700 430" width="100%" height="100%" preserveAspectRatio="xMidYMid meet"><defs><pattern id="dots" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.45" fill="#1aa7ff" opacity=".95"/></pattern><radialGradient id="glow"><stop offset="0" stop-color="#55f2ff"/><stop offset=".35" stop-color="#15baff" stop-opacity=".75"/><stop offset="1" stop-color="#108cff" stop-opacity="0"/></radialGradient></defs><g class="mapShape"><path d="M165 128l46-38 58-9 44-44 48 28 55 4 38 27 52-1 25 34 51 17 9 43 44 24-16 42 30 33-30 33-59-7-39 31-56-8-32 42-52-23-54 31-46-38-51 6-21-42-67-5-17-42-65-20 12-41-38-32 39-31z" fill="url(#dots)" opacity=".74"/><path d="M122 180l70-15 39-58 72-19 51-48 52 31 55 3 43 29 58 5 30 45 58 22 7 43 39 28-22 39 28 38-31 37-65-9-44 35-64-9-30 48-57-27-56 36-52-43-56 7-25-48-71-5-23-48-72-25 17-49-41-36z" fill="none" stroke="#168de8" stroke-width="2" opacity=".32"/></g><path d="M135 285c80-96 176-126 286-78 74 33 121 48 185 35" fill="none" stroke="#53d8ff" stroke-width="2" opacity=".9" class="route"/><path d="M196 332c62-70 126-96 207-76 78 19 112-60 183-105" fill="none" stroke="#0c96ff" stroke-width="2" opacity=".8" class="route"/><path d="M116 247c119-32 215-21 346 46" fill="none" stroke="#36cbff" stroke-width="1.7" opacity=".62" class="route"/><ellipse cx="382" cy="235" rx="245" ry="82" fill="none" stroke="#27c4ff" stroke-width="2" opacity=".56"/><g>${[[148, 282], [211, 220], [298, 162], [372, 213], [455, 181], [544, 146], [594, 250], [432, 318], [315, 338]].map((p, i) => `<circle cx="${p[0]}" cy="${p[1]}" r="32" fill="url(#glow)" opacity=".75"/><circle cx="${p[0]}" cy="${p[1]}" r="5" fill="#4feeff" class="dot" style="animation-delay:${i * .23}s"/>`).join('')}</g></svg>`; if (document.getElementById('mapSmall')) { mapSmall.innerHTML = mapSvg; }
+    const API_CONFIG = { stripePublicKey: 'PUNE_AICI_STRIPE_PUBLIC_KEY', apiEndpoint: 'PUNE_AICI_LINK_API', checkoutLinks: { 3: 'PUNE_LINK_3_ZILE', 10: 'PUNE_LINK_10_ZILE', 20: 'PUNE_LINK_20_ZILE', 30: 'PUNE_LINK_30_ZILE' } };
+    const SUPPORT_CONFIG = { email: 'esimeuro@gmail.com', whatsapp: 'https://wa.me/40733914329?text=Salut%20vreau%20detalii', discord: '#' };
+    const SOCIAL_LINKS = { tiktok: 'https://www.tiktok.com/@esimeuro.com?_r=1&_t=ZN-95yVKH6qWUo', instagram: 'https://www.instagram.com/esimeuro?igsh=MW9mczJrbGd6YjQyNA==', facebook: '#' };
+    [['linkTikTok', 'tiktok'], ['linkInstagram', 'instagram'], ['linkFacebook', 'facebook']].forEach(([id, k]) => { const el = document.getElementById(id); const v = SOCIAL_LINKS[k]; if (v && !v.startsWith('PUNE_')) el.href = v; else el.href = '#' });
+    const supportEmailText = document.getElementById('supportEmailText'), supportEmailBtn = document.getElementById('supportEmailBtn'), footerSupportEmail = document.getElementById('footerSupportEmail');
+    if (SUPPORT_CONFIG.email) {
+      supportEmailText.textContent = SUPPORT_CONFIG.email;
+      footerSupportEmail.textContent = SUPPORT_CONFIG.email;
+      supportEmailBtn.href = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(SUPPORT_CONFIG.email);
+      supportEmailBtn.target = '_blank';
+      supportEmailBtn.rel = 'noopener';
+    }
+    [['footerWhatsApp', 'whatsapp'], ['footerDiscord', 'discord']].forEach(([id, k]) => { const el = document.getElementById(id); const v = SUPPORT_CONFIG[k]; if (v && !v.startsWith('PUNE_')) el.href = v; else el.href = '#' });
+    </script>
+
+  <script>
+    // CHECKOUT PANEL: plan buttons open a nice panel, then Stripe
+    const CHECKOUT_API_URL = "https://esim-euro-api.onrender.com/create-checkout-session";
+    const PLAN_LABELS = {
+      "plan": { name: "eSIM Europa PLAN", amount: 0, days: 0, price: "La cerere" },
+      "3": { name: "eSIM Europa 3 zile", amount: 1099, days: 10, price: "10.99€" },
+      "400GB": { name: "eSIM Europa 400 GB", amount: 5599, days: 30, price: "55.99€" },
+      "30": { name: "eSIM Europa 30 zile", amount: 5999, days: 30, price: "59.99€" }
+    };
+
+    let selectedCheckoutPlan = null;
+    let selectedCheckoutButton = null;
+
+    const checkoutOverlay = document.getElementById("checkoutOverlay");
+    const checkoutForm = document.getElementById("checkoutForm");
+    const checkoutClose = document.getElementById("checkoutClose");
+    const checkoutCancel = document.getElementById("checkoutCancel");
+    const checkoutSubmit = document.getElementById("checkoutSubmit");
+    const checkoutError = document.getElementById("checkoutError");
+    const checkoutPlanName = document.getElementById("checkoutPlanName");
+    const checkoutPlanPrice = document.getElementById("checkoutPlanPrice");
+    const checkoutName = document.getElementById("checkoutName");
+
+    function showCheckoutError(message) {
+      checkoutError.textContent = message;
+      checkoutError.classList.add("show");
+    }
+
+    function hideCheckoutError() {
+      checkoutError.textContent = "";
+      checkoutError.classList.remove("show");
+    }
+
+    function openCheckout(plan, button) {
+      selectedCheckoutPlan = plan;
+      selectedCheckoutButton = button;
+
+      const info = PLAN_LABELS[plan] || { name: "Europa " + plan + " zile", price: "—" };
+      checkoutPlanName.textContent = info.name;
+      checkoutPlanPrice.textContent = info.price;
+
+      hideCheckoutError();
+      checkoutSubmit.disabled = false;
+      checkoutSubmit.textContent = "Continuă spre plată";
+      checkoutOverlay.classList.add("show");
+      checkoutOverlay.setAttribute("aria-hidden", "false");
+      setTimeout(() => checkoutName.focus(), 80);
+    }
+
+    function closeCheckout() {
+      checkoutOverlay.classList.remove("show");
+      checkoutOverlay.setAttribute("aria-hidden", "true");
+      hideCheckoutError();
+    }
+
+    document.querySelectorAll(".buy").forEach((button) => {
+      button.addEventListener("click", () => {
+        const plan = button.dataset.plan;
+        if (!plan) {
+          alert("Planul nu este setat corect pe acest buton.");
+          return;
+        }
+        openCheckout(plan, button);
+      });
+    });
+
+    checkoutClose.addEventListener("click", closeCheckout);
+    checkoutCancel.addEventListener("click", closeCheckout);
+    checkoutOverlay.addEventListener("click", (e) => {
+      if (e.target === checkoutOverlay) closeCheckout();
+    });
+
+    checkoutForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      hideCheckoutError();
+
+      const name = document.getElementById("checkoutName").value.trim();
+      const email = document.getElementById("checkoutEmail").value.trim();
+      const phone = document.getElementById("checkoutPhone").value.trim();
+      const planInfo = PLAN_LABELS[selectedCheckoutPlan] || { name: "Europa " + selectedCheckoutPlan + " zile", price: "—" };
+
+      if (!name || name.length < 3) {
+        showCheckoutError("Te rog introdu numele complet.");
+        return;
+      }
+
+      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      if (!emailOk) {
+        showCheckoutError("Te rog introdu un email valid.");
+        return;
+      }
+
+      const phoneOk = phone.replace(/[^0-9]/g, "").length >= 8;
+      if (!phoneOk) {
+        showCheckoutError("Te rog introdu un număr de telefon valid.");
+        return;
+      }
+
+      checkoutSubmit.disabled = true;
+      checkoutSubmit.textContent = "Se procesează plata...";
+      if (selectedCheckoutButton) {
+        selectedCheckoutButton.disabled = true;
+        selectedCheckoutButton.textContent = "SE PROCESEAZĂ...";
+      }
+
+      try {
+        const response = await fetch(CHECKOUT_API_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            plan: selectedCheckoutPlan,
+            email,
+            name,
+            phone,
+            planName: planInfo.name,
+            price: planInfo.price
+          })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok || !data.url) {
+          throw new Error(data.error || "Nu s-a putut crea plata.");
+        }
+
+        window.location.href = data.url;
+      } catch (error) {
+        showCheckoutError("Eroare la plată: " + error.message);
+        checkoutSubmit.disabled = false;
+        checkoutSubmit.textContent = "Continuă spre plată";
+        if (selectedCheckoutButton) {
+          selectedCheckoutButton.disabled = false;
+          selectedCheckoutButton.textContent = "CUMPĂRĂ ACUM";
+        }
+      }
+    });
+  </script>
+
+  
+  <script>
+  // FUP MODAL FIX
+  document.addEventListener("DOMContentLoaded", () => {
+    const fupModal = document.getElementById("fupModal");
+    const closeFup = document.getElementById("closeFup");
+
+    document.querySelectorAll(".openFupBtn, #openFup").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (fupModal) fupModal.classList.add("show");
+      });
+    });
+
+    if (closeFup && fupModal) {
+      closeFup.addEventListener("click", () => fupModal.classList.remove("show"));
+      fupModal.addEventListener("click", (e) => {
+        if (e.target === fupModal) fupModal.classList.remove("show");
+      });
+    }
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const offerOverlay = document.getElementById("offerOverlay");
+    const offerClose = document.getElementById("offerClose");
+    const offerForm = document.getElementById("offerForm");
+
+    let selectedOfferPlan = "";
+
+    document.querySelectorAll(".offerBtn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        selectedOfferPlan = btn.dataset.plan || "Ofertă eSIM";
+        offerOverlay.classList.add("show");
+      });
+    });
+
+    offerClose.addEventListener("click", () => {
+      offerOverlay.classList.remove("show");
+    });
+
+    offerForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("offerName").value.trim();
+      const email = document.getElementById("offerEmail").value.trim();
+      const phone = document.getElementById("offerPhone").value.trim();
+      const desc = document.getElementById("offerDesc").value.trim();
+
+      const mesaj = `Salut! Vreau ofertă eSIM.
+
+Plan: ${selectedOfferPlan}
+Nume: ${name}
+Email: ${email}
+Telefon: ${phone}
+Descriere: ${desc}`;
+
+      const whatsappNumber = "40733914329";
+      const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(mesaj)}`;
+
+      window.open(url, "_blank");
+    });
+  });
+</script>
+
+<a class="whatsappFloat" href="https://wa.me/40733914329?text=Salut%20vreau%20detalii%20despre%20eSIM" target="_blank" rel="noopener">
+  <span>WhatsApp</span>
+</a>
+
+<script>
+const REVIEWS_API = "https://esim-euro-api.onrender.com/reviews";
+
+const userReviewsBox = document.getElementById("userReviews");
+const featuredReviewBox = document.getElementById("featuredReview");
+const reviewFormBox = document.getElementById("reviewForm");
+
+function escapeHtml(value) {
+  return String(value || "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+async function loadReviews() {
+  try {
+    const res = await fetch(REVIEWS_API);
+    const data = await res.json();
+    const reviews = Array.isArray(data.reviews) ? data.reviews : [];
+
+    userReviewsBox.innerHTML = "";
+
+    if (reviews.length === 0) {
+      featuredReviewBox.innerHTML = "Primele recenzii reale vor apărea aici după ce clienții publică feedback.";
+      return;
+    }
+
+    reviews.forEach((r) => {
+      const div = document.createElement("div");
+      div.className = "userReview";
+
+      const name = escapeHtml(r.name || "Client");
+      const text = escapeHtml(r.text || "");
+      const stars = Math.max(1, Math.min(5, Number(r.stars || 5)));
+
+      div.innerHTML = `
+        <b>${name}</b><br>
+        <span style="color:#00d083">${"★".repeat(stars)}${"☆".repeat(5 - stars)}</span>
+        <p>${text}</p>
+      `;
+
+      userReviewsBox.appendChild(div);
+    });
+
+    const first = reviews[0];
+    featuredReviewBox.innerHTML = `“${escapeHtml(first.text || "")}”<br><br>— ${escapeHtml(first.name || "Client")}`;
+  } catch (err) {
+    console.log("Reviews error:", err);
+  }
+}
+
+if (reviewFormBox) {
+  reviewFormBox.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById("reviewEmail").value.trim();
+    const stars = Number(document.getElementById("reviewStars").value);
+    const text = document.getElementById("reviewText").value.trim();
+
+    try {
+      const res = await fetch(REVIEWS_API, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, stars, text })
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        alert(data.error || "Eroare la recenzie");
+        return;
+      }
+
+      reviewFormBox.reset();
+      await loadReviews();
+      alert("Recenzie publicată!");
+    } catch (err) {
+      console.log("Reviews submit error:", err);
+      alert("Eroare server");
+    }
+  });
+}
+
+loadReviews();
+</script>
+  </body>
+</html>
