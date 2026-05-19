@@ -2747,25 +2747,23 @@ body {
       e.preventDefault();
 
       const name = document.getElementById("offerName").value.trim();
-      const email = document.getElementById("offerEmail").value.trim();
+      const clientEmail = document.getElementById("offerEmail").value.trim();
       const phone = document.getElementById("offerPhone").value.trim();
       const desc = document.getElementById("offerDesc").value.trim();
 
-      const mesaj = `Salut! Vreau ofertă eSIM.
+      const mesaj = Salut! Vreau ofertă eSIM.
 
 Plan: ${selectedOfferPlan}
 Nume: ${name}
-Email: ${email}
+Email: ${clientEmail}
 Telefon: ${phone}
-Descriere: ${desc}`;
+Descriere: ${desc};
 
-     const email = "esimeuro@gmail.com";
+      const toEmail = "esimeuro@gmail.com";
+      const subject = encodeURIComponent("Cerere ofertă eSIM");
+      const body = encodeURIComponent(mesaj);
 
-const subject = encodeURIComponent("Cerere ofertă eSIM");
-const body = encodeURIComponent(mesaj);
-
-window.location.href =
-mailto:${email}?subject=${subject}&body=${body};
+      window.location.href = mailto:${toEmail}?subject=${subject}&body=${body};
     });
   });
 </script>
