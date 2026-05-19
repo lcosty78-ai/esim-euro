@@ -2541,7 +2541,7 @@ body {
         <input id="offerDesc" type="text" placeholder="Ex: vreau eSIM 3 zile pentru Italia" required>
       </label>
 
-      <button type="submit" class="checkoutSubmit">Trimite pe WhatsApp</button>
+      <button type="submit" class="checkoutSubmit">Trimite pe Gmail</button>
     </form>
   </div>
 </div>
@@ -2759,17 +2759,16 @@ Email: ${email}
 Telefon: ${phone}
 Descriere: ${desc}`;
 
-      const whatsappNumber = "40733914329";
-      const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(mesaj)}`;
+     const email = "esimeuro@gmail.com";
 
-      window.open(url, "_blank");
+const subject = encodeURIComponent("Cerere ofertă eSIM");
+const body = encodeURIComponent(mesaj);
+
+window.location.href =
+mailto:${email}?subject=${subject}&body=${body};
     });
   });
 </script>
-
-<a class="whatsappFloat" href="https://wa.me/40733914329?text=Salut%20vreau%20detalii%20despre%20eSIM" target="_blank" rel="noopener">
-  <span>WhatsApp</span>
-</a>
 
 <script>
 const REVIEWS_API = "https://esim-euro-api.onrender.com/reviews";
